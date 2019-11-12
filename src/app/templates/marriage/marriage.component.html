@@ -14,40 +14,40 @@
   </div>
 
   <div class="declaration">
-    <form>
+    <form [formGroup]="marriageForm">
       <div class="twins ">
         <p class="twin c3">between mr</p>
-        <input type="text" id="hname" placeholder="Husband's Name" name="hname" class="lg c9 ml-2" />
+        <input type="text" id="hname" placeholder="Husband's Name" name="hname" formControlName="husband" class="lg c9 ml-2" />
       </div>
       <div class="twins mt-2">
         <p class="twin c3">and miss</p>
-        <input type="text" id="wname" placeholder="Wife's Name" name="wname" class="lg c9 ml-2" />
+        <input type="text" id="wname" placeholder="Wife's Name" name="wname" formControlName="wife" class="lg c9 ml-2" />
       </div>
       <div class="twins mt-2">
         <p class="twin c3">i</p>
-        <input type="text" id="witness" name="witness" placeholder="witness name" class="lg c9 ml-2" />
+        <input type="text" id="witness" name="witness" placeholder="witness name" formControlName="witnessName" class="lg c9 ml-2" />
       </div>
       <div class="form-inline mt-2">
-        <p>am a <input type="text" placeholder="nationality" id="nationality" name="nationality" /> <input type="text"
+        <p>am a <input type="text" placeholder="nationality" id="nationality" name="nationality" formControlName="witnessCountry"/> <input type="text"
             placeholder="citizen" citizen name="citizen" class="ml-1" /> </p>
       </div>
       <div class="twins mt-2">
         <p class="twin c3">residing at number</p>
-        <input type="text" id="address" name="address" placeholder="address" class="lg c9 ml-2" />
+        <input type="text" id="address" name="address" placeholder="address" formControlName="address" class="lg c9 ml-2" />
       </div>
       <div class="form-inline mt-2">
-        <p>that i am <input type="text" placeholder="religion" id="religion" name="religion" /> and i make oath and
+        <p>that i am <input type="text" placeholder="religion" id="religion" formControlName="witnessReligion" name="religion" /> and i make oath and
           declare as follows: </p>
       </div>
       <ol>
         <li>
           <div class="twins mt-2">
             <p class="twin c3">that i am the</p>
-            <input type="text" placeholder="witness" id="witness" name="witness" class="lg c9 ml-1" />
+            <input type="text" placeholder="witness" id="witness" name="witness" formControlName="relationship" class="lg c9 ml-1" />
           </div>
           <div class="twins mt-2">
             <p class="twin c3">of</p>
-            <input type="text" placeholder="name of witnessed" id="now" name="now" class="lg c9 ml-1" />
+            <input type="text" placeholder="name of witnessed" id="now" name="now" formControlName="witnessName" class="lg c9 ml-1" />
           </div>
           <!-- <div class="form-inline mt-2">
             <p>that i am the <input type="text" placeholder="witness" id="witness" name="witness" /> of
@@ -57,10 +57,10 @@
 
         <li>
           <div class="form-inline mt-2">
-            <p>that <input type="text" placeholder="husband's name" id="hn" name="hn" /> was married to
-              <input type="text" placeholder="wife's name" id="wn" name="wn" class="ml-1 mt-2" /> on the <input
-                type="text" placeholder="25th" id="day" name="day" class="mt-2" /> day of <input type="text"
-                placeholder="december 2010" id="my" name="my" class="mt-2" />
+            <p>that <input type="text" placeholder="husband's name" id="hn" name="hn" formControlName="husband" /> was married to
+              <input type="text" placeholder="wife's name" id="wn" name="wn" formControlName="wife" class="ml-1 mt-2" /> on the <input
+                type="text" placeholder="25th" id="day" name="day" formControlName="day" class="mt-2" /> day of <input type="text"
+                placeholder="december 2010" id="my" name="my" formControlName="my" class="mt-2" />
             </p>
           </div>
         </li>
@@ -87,9 +87,9 @@
       </div>
       <p class="mt-2 mb-2">the foregoing has been read over and interpreted by the declarant from</p>
       <div class="form-inline">
-        <p><input type="text" placeholder="nil" name="venue" id="venue" /> language to
-          <input type="text" placeholder="nil" class="mt-2" /> language by <input type="text" placeholder="nil"
-            class=mt-2 />
+        <p><input type="text" placeholder="nil" name="venue" id="venue" formControlName="fromLanguage"/> language to
+          <input type="text" placeholder="nil" class="mt-2" formControlName="toLanguage" /> language by <input type="text" placeholder="nil"
+            class=mt-2 formControlName="interpreter"/>
 
         </p>
       </div>
@@ -104,11 +104,11 @@
         <div>
           <div class="form-inline mt-3">
             <label for="fees" class="mr-sm-2"><strong>Fees Paid:</strong></label>
-            <input type="fees" class="mb-2 mr-sm-2" id="fees">
+            <input type="fees" class="mb-2 mr-sm-2" id="fees" formControlName="amountPaid">
           </div>
           <div class="form-inline">
             <label for="teller" class="mr-sm-2"><strong>Receipt/Bank Teller No:</strong></label>
-            <input type="teller" class="mb-2 mr-sm-2" id="teller">
+            <input type="teller" class="mb-2 mr-sm-2" id="teller" formControlName="tellerNumber">
           </div>
         </div>
         <div class="mt-1">
@@ -119,7 +119,7 @@
       </div>
       <div class="form-inline">
         <label for="date" class="mr-sm-2"><strong>Date:</strong></label>
-        <input type="date" class="mb-2 mr-sm-2" id="date" placeholder="08/08/2019">
+        <input type="date" class="mb-2 mr-sm-2" id="date" placeholder="08/08/2019" formControlName="date">
       </div>
       <div class="d-flex justify-content-end">
         <div class="oath text-center mr-2">
@@ -130,7 +130,40 @@
           <p class="text-capitalize">Commisioner of Oaths</p>
         </div>
       </div>
-      <button class="btn-block mt-4 main">Submit</button>
+      <button class="btn-block mt-4 main" (click)="save()">Submit</button>
     </form>
   </div>
 </div>
+
+<!--modal with details-->
+
+<ng-template #content let-modal>
+  <!-- <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div> -->
+  <div *ngIf="response">
+    <div class="modal-body text-center text-uppercase">
+      <div clas="head-text">
+        <h3>High court of justice</h3>
+        <h3>Federal capital territory, abuja.</h3>
+
+        <h3 class="mt-4 mb-3">payment reference slip</h3>
+      </div>
+      <div class="text-block">
+        <p>affidavit reference number: {{this.response}}</p>
+        <p>affidavit type: age declaration</p>
+        <p>date generated: 12/11/2019</p>
+        <p>amount: 500</p>
+        <p>payment method bank branch</p>
+        <p>accout name: high court of justice, fct abuja</p>
+        <p>bank: access bank plc</p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-warning" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </div>
+</ng-template>

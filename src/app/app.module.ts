@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
 import { TemplatesModule } from './templates/templates.module';
 import { AlertModule } from './alert/alert.module';
+import { PrintModule } from './print/print.module';
 
 import { NavigationComponent } from './navigation/navigation.component';
 import { LoginComponent } from './login/login.component';
@@ -26,7 +27,6 @@ import { MatTableModule } from '@angular/material/table';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatDialogComponent } from './mat-dialog/mat-dialog.component';
 import { PaymentsComponent } from './payments/payments.component';
-
 import { ToastModule } from './toast/toast.module';
 
 @NgModule({
@@ -58,7 +58,8 @@ import { ToastModule } from './toast/toast.module';
     MatTableModule,
     TemplatesModule,
     AlertModule,
-    ToastModule
+    ToastModule,
+    PrintModule
   ],
   providers: [],
   bootstrap: [AppComponent],

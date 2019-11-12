@@ -15,6 +15,7 @@ import { CreateuserComponent } from './createuser/createuser.component';
 import { InstitutionComponent } from './institution/institution.component';
 import { ReportsComponent } from './reports/reports.component';
 import { PaymentsComponent } from './payments/payments.component';
+import { PrintComponent } from './print/print.component';
 import { AuthGuard } from './util/auth.guard';
 
 const routes: Routes = [
@@ -88,6 +89,11 @@ const routes: Routes = [
         path: 'payments',
         component: PaymentsComponent,
         data: { title: 'Payments Component' }
+      },
+      {
+        path: 'print',
+        component: PrintComponent,
+        data: { title: 'Print Component' }
       },
       { path: '**', redirectTo: '' }
     ]

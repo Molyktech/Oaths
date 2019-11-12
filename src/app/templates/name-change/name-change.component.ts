@@ -78,6 +78,7 @@ export class NameChangeComponent implements OnInit {
     obj.institutionId = this.currentUser.institutionID;
     this.documentService.saveChangeOfName(obj).subscribe(
       res => {
+        console.log(res)
         this.loading = false;
         console.log(obj);
         this.openDialog('Change of Name', `Saved Succesfully`);

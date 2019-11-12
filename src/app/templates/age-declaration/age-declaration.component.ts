@@ -158,4 +158,29 @@ export class AgeDeclarationComponent implements OnInit {
   open(content) {
     this.modalService.open(content, { centered: true });
   }
+
+  // printDiv(divName) {
+  //   var printContents = document.getElementById(divName).innerHTML;
+  //   var originalContents = document.body.innerHTML;
+
+  //   document.body.innerHTML = printContents;
+
+  //   window.print();
+
+  //   document.body.innerHTML = originalContents;
+  // }
+
+  printDiv(id){
+    var html="<html>";
+    html+= document.getElementById(id).innerHTML;
+ 
+    html+="</html>";
+ 
+    var printWin = window.open();
+    printWin.document.write(html);
+    printWin.document.close();
+    printWin.focus();
+    printWin.print();
+    printWin.close();
+   }
 }

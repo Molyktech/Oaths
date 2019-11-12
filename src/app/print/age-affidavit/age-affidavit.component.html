@@ -1,0 +1,149 @@
+<div class="paper">
+  <div class="header">
+    <img *ngIf="institution" src="{{institution?.logo1}}" alt="coat of arms" class="mt-2" />
+    <img *ngIf="!institution"
+      src="https://seeklogo.com/images/C/coat-of-arms-of-nigeria-logo-1BB4D7976C-seeklogo.com.png" class="mt-2" />
+    <div class="header-title text-center mt-4">
+      <h5 class="text-success">
+        {{ institution?.name }}<br />
+        {{ institution?.address }}
+      </h5>
+    </div>
+    <img src="{{ institution?.logo2 }}" alt="high court logo" class="mt-2" />
+  </div>
+  <div class="panel text-white text-center">
+    <p>{{affidavit.documentName}}</p>
+  </div>
+
+  <div class="declaration">
+
+    <ol>
+      <li>
+
+        <p>I {{affidavit.name | titlecase}} of {{affidavit.address}} do solemly and sincerely declare:</p>
+      </li>
+      <li>
+
+        <p class="twin c3">That my age is {{affidavit.age}}.
+          That I am the {{affidavit.relationship}}
+          of {{affidavit.relativeName | titlecase}}
+        </p>
+      </li>
+      <li>
+
+        <p class="twin c4">
+          That to the best of my knowledge and belief the said {{affidavit.relativeName2 | titlecase}}
+          was born at {{affidavit.birthPlace | titlecase}}
+
+          in {{affidavit.birthLocalGovt | titlecase}}
+
+          Local Government Area of {{affidavit.birthState | titlecase}}
+
+          State. On the {{affidavit.dayOfBirth}}
+
+          day of {{affidavit.dateofBirth | titlecase}}
+
+        </p>
+
+      </li>
+      <li>
+
+        <p class="twin c4">
+          That at the time of his/her birth, it was not registered at {{affidavit.registeredLocalLGovt | titlecase}} ,
+          {{affidavit.registeredState | titlecase}}
+        </p>
+
+      </li>
+      <li>
+        <p class="mt-2">
+          That I am making the solemn declaration conscientiously believing
+          same to be true and correct in accordance with the Oaths Act of
+          1990.
+        </p>
+      </li>
+    </ol>
+
+    <div class="twins mt-2">
+      <div class="form-inline mr-2 c3">
+        <p>Date: {{affidavit.date}}
+        </p>
+      </div>
+      <div class="text-center c9">
+        <input class="signature signature2" />
+        <p>Signature or Mark of Declarant</p>
+      </div>
+    </div>
+
+    <p class="twin c3">Sworn to at the {{affidavit.courtName | titlecase}} Registry</p>
+
+
+
+    <div class="form-inline mt-2">
+      <p>
+        This {{affidavit.presentDay}}
+        day
+        of {{affidavit.presentMonthYear | titlecase}}
+
+      </p>
+    </div>
+    <p class="mt-2 mb-2">
+      The foregoing has been read over and interpreted by the declarant from {{affidavit.fromLanguage | titlecase}}
+
+
+
+      Language
+      to {{affidavit.toLanguage | titlecase}}
+
+      Language by {{affidavit.interpreter | titlecase}}
+
+    </p>
+
+    <p class="mt-2 mb-2">
+      The above has been interpreted to me and I understand same before
+      affixing my thumb impression there to.
+    </p>
+
+    <div class="d-flex justify-content-end">
+      <p class="mt-4">Signature of Interpreter</p>
+      <input class="signature signature2" />
+    </div>
+
+    <div class="footer mt-4">
+      <div>
+        <div class="form-inline mt-3">
+          <label for="fees" class="mr-sm-2"><strong>Fees Paid:</strong>{{affidavit.amountPaid}}</label>
+
+        </div>
+
+        <div class="form-inline">
+          <label for="teller" class="mr-sm-2"><strong>Receipt/Bank Teller No:</strong>
+            {{affidavit.tellerNumber}}</label>
+
+        </div>
+
+      </div>
+      <div class="mt-1 ml-3 thumb-print">
+        <i><em>Affix Thumb Print Here</em></i>
+        <textarea></textarea>
+      </div>
+    </div>
+    <div class="form-inline">
+      <label for="date" class="mr-sm-2"><strong>Date:</strong>{{affidavit.date}}</label>
+
+
+    </div>
+    <div class="d-flex justify-content-end mt-3 oath-head">
+      <div class="oath text-center mr-2">
+        <p>Before Me</p>
+      </div>
+      <div>
+        <input class="signature signature2" />
+        <p class="text-capitalize mt-1">
+          <strong>Commisioner of Oaths</strong>
+        </p>
+      </div>
+    </div>
+
+
+  </div>
+</div>

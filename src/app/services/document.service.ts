@@ -20,6 +20,10 @@ export class DocumentService {
   saveAgeDeclaration(obj: AgeDeclaration) {
     return this.http.post(`${this.url}/AgeDeclaration/save`, obj);
   }
+
+  saveMarriageDeclaration(obj){
+    return this.http.post(`${this.url}/Marriage/Save`,obj)
+  }
   getMarriageAgeNameGeneralById(urll,id){
     return this.http.get(`${this.url}/${urll}/${id}`)
   }

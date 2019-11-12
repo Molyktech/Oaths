@@ -1,5 +1,5 @@
 <div class="container mt-4">
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="name"><b>Document Type:</b></label>
         <div style="display:flex">
             <select class="select-css" [(ngModel)]="documentType">
@@ -9,12 +9,12 @@
                 <option>General Declaration</option>
             </select>
         </div>
-    </div>
+    </div> -->
     <div class="form-group">
-        <label for="name">Document Id:</label>
+        <label for="name">Document Reference Number:</label>
         <div style="display:flex">
             <input type="search" class="form-control" id="name" aria-describedby="emailHelp" 
-            placeholder="Enter Document Id" 
+            placeholder="Enter Affidavit Reference Number" 
             [(ngModel)]="refNo" 
             [ngModelOptions]="{standalone: true}">
             <button style="background-color:#673AB7; color:white;" class="btn"
@@ -39,36 +39,6 @@
         <h3>Document:{{oathform.documentName}}</h3>
         <h3>Name:{{oathform.name}}</h3>
     </div>
-    <!-- <div *ngIf="age" class="oathform">
-            <div>
-                <img [src]="currentUser.institution.logo1" height="50px" width="50px" style="float:left; margin-left:10px">
-                <img [src]="currentUser.institution.logo2" height="50px" width="50px" style="float:right; margin-right:10px">
-            </div>
-        <h3>Id:{{oathform.id}}</h3>
-        <h3>Court Name:{{oathform.courtName}}</h3>
-        <h3>Name:{{oathform.name}}</h3>
-        <h3>Date of Birth:{{oathform.dateofBirth}}</h3>
-    </div>
-    <div *ngIf="name" class="oathform">
-        <div>
-            <img [src]="currentUser.institution.logo1" height="50px" width="50px" style="float:left; margin-left:10px">
-            <img [src]="currentUser.institution.logo2" height="50px" width="50px" style="float:right; margin-right:10px">
-        </div>
-        <h3>Id:{{oathform.id}}</h3>
-        <h3>Court Name:{{oathform.courtName}}</h3>
-        <h3>Formerly Called:{{oathform.formerlyCalled}}</h3>
-        <h3>Now Called:{{oathform.nowCalled}}</h3>
-    </div>
-    <div *ngIf="general" class="oathform">
-        <div>
-            <img [src]="currentUser.institution.logo1" height="50px" width="50px" style="float:left; margin-left:10px">
-            <img [src]="currentUser.institution.logo2" height="50px" width="50px" style="float:right; margin-right:10px">
-        </div>
-        <h3>Id:{{oathform.id}}</h3>
-        <h3>Court Name:{{oathform.courtName}}</h3>
-        <h3>Deponent: {{oathform.deponent}}</h3>
-        <h3>Now Called:{{oathform.nowCalled}}</h3>
-    </div> -->
     <div style="margin:0 auto; width:300px">
         <button class="btn btn-lg btn-outline-dark" (click)="open(paymentmodal)" 
             style="width:100%">
@@ -85,7 +55,7 @@
       </button>
     </div>
     <div class="modal-body">
-        Document Reference: {{oathform.documentRef}}<br>
+        Document Reference: <span style="font-weight: bold">{{oathform.documentRef}}</span><br>
         <form [formGroup]="paymentForm">
             <div class="form-group mt-2">
                 <label for="name">Reference</label>
@@ -101,15 +71,6 @@
                     <input type="number" class="form-control" id="name" 
                     placeholder="Enter Amount"
                     formControlName="amount" >
-                </div>
-            </div>
-            <div class="form-group mt-2">
-                <label for="name">Payer Name</label>
-                <div style="display:flex">
-                    <input type="text" class="form-control" id="name" 
-                    placeholder="Enter Payer's Name"
-                    formControlName="payerName" 
-                    >
                 </div>
             </div>
         </form>  
