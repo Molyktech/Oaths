@@ -220,3 +220,15 @@ button.main:active {
 .ng-invalid:not(form)  {
   border: 1px solid #a94442; /* red */
 }
+
+.bg-image{
+  background: url("https://seeklogo.com/images/C/coat-of-arms-of-nigeria-logo-1BB4D7976C-seeklogo.com.png");
+  background-position: center;
+ background-repeat: no-repeat;
+ background-size: contain;
+ opacity: .1;
+ height:200px;
+ position: relative;
+ top:270px;
+  
+}

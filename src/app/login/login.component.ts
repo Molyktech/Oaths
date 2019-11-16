@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   loginForm: FormGroup;
   returnUrl: string;
+  errorMessage: string;
 
   constructor(
     private loginService: LoginService,
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
     }
   }
   ngOnInit() {
+    localStorage.removeItem('currentUser');
     this.loginForm = new FormGroup({
       username: new FormControl('', [Validators.required]),
       password: new FormControl('', [
@@ -57,7 +59,11 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.loginForm.value).subscribe(
       res => {
         this.loading = false;
-        this.router.navigate(['/navigation']);
+        if (res === null) {
+          this.errorMessage = 'Error invalid login details';
+        } else {
+          this.router.navigate(['/navigation']);
+        }
       },
       error => {
         this.loading = false;

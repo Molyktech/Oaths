@@ -30,9 +30,7 @@
 
             <p class="twin c3">of</p>
           </div>
-          <!-- <div *ngIf=" name.touched && name.invalid || submitted && name.errors" class="alert alert-danger">
-            <small *ngIf="name.errors.required">Name is required</small>
-          </div> -->
+        
           <div *ngIf="(f?.name.dirty && f?.name.invalid) || (submitted && f.name.errors)" class="alert alert-danger">
             <small *ngIf="f?.name.errors.required">Name is required</small>
           </div>
@@ -322,11 +320,11 @@
         <h3 class="mt-4 mb-3">payment reference slip</h3>
       </div>
       <div class="text-block">
-        <p>affidavit reference number: {{this.response}}</p>
-        <p>affidavit type: age declaration</p>
-        <p>date generated: 12/11/2019</p>
-        <p>amount: 500</p>
-        <p>payment method bank branch</p>
+        <p>affidavit reference number: {{response.affidavitReferenceNumber}}</p>
+        <p>affidavit type: {{response.affidavitType}}</p>
+        <p>date generated: 16/11/2019</p>
+        <p>amount: {{response.fee}}</p>
+        <p>payment method: bank branch</p>
         <p>account number: 0118923457</p>
         <p>accout name: high court of justice, fct abuja</p>
         <p>bank: access bank plc</p>

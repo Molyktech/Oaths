@@ -71,11 +71,7 @@ export class AgeDeclarationComponent implements OnInit {
       tellerNumber: [''],
       presentDay: ['', Validators.required],
       presentMonthYear: ['', Validators.required]
-      // documentRef:[''],
-      // isPaid: [''],
-      // dateGenerated: [''],
-      // datePaid: [''],
-      // documentName: ['']
+      
     });
   }
 
@@ -171,12 +167,10 @@ export class AgeDeclarationComponent implements OnInit {
   // }
 
   printDiv(id){
-    var html="<html>";
+    let html = '<html>';
     html+= document.getElementById(id).innerHTML;
- 
-    html+="</html>";
- 
-    var printWin = window.open();
+    html+='</html>';
+    let printWin = window.open();
     printWin.document.write(html);
     printWin.document.close();
     printWin.focus();

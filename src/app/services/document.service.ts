@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { EnvService } from './env.service';
 import { ChangeOfName } from '../models/changeOfName';
 import { AgeDeclaration } from '../models/ageDeclaration';
+import { GeneralAffidavit } from '../models/generalAffidavit';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,10 @@ export class DocumentService {
   }
   getMarriageAgeNameGeneralById(urll,id){
     return this.http.get(`${this.url}/${urll}/${id}`)
+  }
+
+  saveGeneralAffidavit(obj: GeneralAffidavit) {
+    return this.http.post(`${this.url}/GeneralAffidavit/Save`, obj);
   }
 
   getDocumentByRef(refNo){
