@@ -1,0 +1,79 @@
+<div class="container mb-4">
+        <h3 style="text-align: center; font-size: 2em" class="mb-4 mt-4">Create Document</h3>
+        <form [formGroup]="documentForm">
+            <div class="form-group">
+                <label for="name">Document Name</label>
+                <input type="text" class="form-control" 
+                placeholder="Document Name"
+                formControlName="name">
+            </div>
+            <div class="form-group">
+                <label for="name">Amount</label>
+                <input type="number" class="form-control" 
+                placeholder="Amount"
+                formControlName="fee">
+            </div>
+            <div class="form-group">
+                <label for="name">Revenue Code</label>
+                <input type="text" class="form-control" 
+                placeholder="Revenue Code"
+                formControlName="revenueCode">
+            </div>
+            <div class="loader2" *ngIf="loading"></div>
+            <button type="submit" class="btn btn-primary" style="float:right" (click)="saveDocument()">Submit</button>
+        </form>
+
+        <div class="table table-responsive mt-4">
+            <hr>
+            <table style="margin-top:20px">
+                <tr>
+                    <th>S/N</th>
+                    <th>Name</th>
+                    <th>Fee</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let document of documentTypes; index as i">
+                    <td>{{i+1}}</td>
+                    <td>{{document.name | uppercase}}</td>
+                    <td>{{document.fee}}</td>
+                    <td style="cursor:pointer; text-align: center" (click)="editDocument(document); open(content)">
+                        <i class="material-icons">create</i>
+                    </td>
+                </tr>
+            </table>                      
+        </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title"><b>Edit Document</b></h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+            <div class="form-group">
+                    <label for="name">Document Name</label>
+                    <input type="text" class="form-control" 
+                    placeholder="Document Name"
+                    [(ngModel)]="document.name">
+            </div>
+            <div class="form-group">
+                    <label for="name">Amount</label>
+                    <input type="number" class="form-control" 
+                    placeholder="Amount"
+                    [(ngModel)]="document.fee">
+            </div>
+            <div class="form-group">
+                    <label for="name">Revenue Code</label>
+                    <input type="text" class="form-control" 
+                    placeholder="Revenue Code"
+                    [(ngModel)]="document.revenueCode">
+            </div>
+    </div>
+    <div class="modal-footer">
+            <div class="loader2" *ngIf="loading2"></div>
+        <button type="button" class="btn btn-outline-dark" (click)="updateDocument()">Update</button>
+    </div>
+</ng-template>
+    

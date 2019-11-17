@@ -15,4 +15,5 @@ export class ChangeOfName {
   tellerNumber: string;
   commissionerName: string;
   institutionId: number;
+  printedTime:string;
 }

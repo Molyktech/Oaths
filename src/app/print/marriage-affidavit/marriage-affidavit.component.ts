@@ -4,11 +4,11 @@ import { Institution } from 'src/app/models/institution';
 import { InstitutionService } from 'src/app/services/institution.service';
 
 @Component({
-  selector: 'app-age-affidavit',
-  templateUrl: './age-affidavit.component.html',
-  styleUrls: ['./age-affidavit.component.scss']
+  selector: 'app-marriage-affidavit',
+  templateUrl: './marriage-affidavit.component.html',
+  styleUrls: ['./marriage-affidavit.component.scss']
 })
-export class AgeAffidavitComponent implements OnInit {
+export class MarriageAffidavitComponent implements OnInit {
   @Input() affidavit: any;
   currentUser: User;
   institution: Institution;

@@ -4,14 +4,15 @@ import { Institution } from 'src/app/models/institution';
 import { InstitutionService } from 'src/app/services/institution.service';
 
 @Component({
-  selector: 'app-age-affidavit',
-  templateUrl: './age-affidavit.component.html',
-  styleUrls: ['./age-affidavit.component.scss']
+  selector: 'app-general-affidavit',
+  templateUrl: './general-affidavit.component.html',
+  styleUrls: ['./general-affidavit.component.scss']
 })
-export class AgeAffidavitComponent implements OnInit {
+export class GeneralAffidavitComponent implements OnInit {
   @Input() affidavit: any;
   currentUser: User;
   institution: Institution;
+
   constructor(private institutionService: InstitutionService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser')) as User;
   }

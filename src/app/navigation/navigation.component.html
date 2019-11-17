@@ -43,6 +43,12 @@
         </button>
       </mat-list-item>
       <mat-list-item *ngIf="open">
+          <button routerLink="createdocument" routerLinkActive="active" class="menu-item" mat-flat-button>
+            <mat-icon class="routeIcon">group</mat-icon>
+            Create Document
+          </button>
+        </mat-list-item>
+      <mat-list-item *ngIf="open">
         <button routerLink="roles" routerLinkActive="active" class="menu-item" mat-flat-button>
           <mat-icon class="routeIcon">group</mat-icon>
           Roles

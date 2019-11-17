@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row mt-4">
+  <!-- <div class="row mt-4">
     <div class="col-sm-4">
       <div class="card">
         <div class="card-header">
@@ -30,41 +30,48 @@
         </div>
       </div>
     </div>
+  </div>-->
+  <div style="display:flex">
+    <div>
+        <h3>Total Paid</h3>
+        <h3>{{paidLength}}</h3>
+    </div>
+    <div style="display:block;width:350px;height:250px; margin:20px auto 0 auto">
+        <canvas
+          baseChart
+          [data]="doughnutChartData"
+          [labels]="doughnutChartLabels"
+          [chartType]="doughnutChartType"
+          class="mat-elevation-z8"
+        >
+        </canvas>
+      </div>
+      <div>
+          <h3>Total Unpaid</h3>
+          <h3>{{unpaidLength}}</h3>
+      </div>
   </div>
-
-  <div style="display:block;width:350px;height:250px; margin:20px auto 0 auto">
-    <canvas
-      baseChart
-      [data]="doughnutChartData"
-      [labels]="doughnutChartLabels"
-      [chartType]="doughnutChartType"
-      class="mat-elevation-z8"
-    >
-    </canvas>
-  </div>
-  <div class="container" *ngIf="!loading">
+  <div class="container mt-2" *ngIf="!loading">
     <table>
-      <thead>
         <tr>
-          <th class="index">Ref No.</th>
-          <th style="text-align: center; font-weight:bold">Affidavit Type</th>
-          <th style="text-align: center; font-weight:bold">Status</th>
-          <!-- <th style="text-align: center; font-weight:bold">Staff</th> -->
-          <th style="text-align: center; font-weight:bold">Date</th>
+          <th class="tableHeader">Ref No.</th>
+          <th class="tableHeader">Affidavit Type</th>
+          <th class="tableHeader">Status</th>
+          <th class="tableHeader">Staff</th>
+          <th class="tableHeader">Date Paid</th>
+          <th class="tableHeader">Date Printed</th>
         </tr>
-      </thead>
-      <tbody>
         <tr *ngFor="let report of reports; index as i">
           <th class="index">{{ report.arn }}</th>
-          <td style="font-weight: bold; text-align: center">
+          <td style="text-align: center">
             {{ report.affidavitType }}
           </td>
           <td class="index" *ngIf="report.isPaid">Paid</td>
           <td class="index" *ngIf="!report.isPaid">Unpaid</td>
-          <!-- <td class="index">{{ report.staff }}</td> -->
+          <td class="index">{{ report.staff }}</td>
+          <td class="index">{{ getDate(report.dateGenerated) }}</td>
           <td class="index">{{ getDate(report.dateGenerated) }}</td>
         </tr>
-      </tbody>
     </table>
   </div>
 </div>

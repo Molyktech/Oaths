@@ -28,6 +28,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatDialogComponent } from './mat-dialog/mat-dialog.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { ToastModule } from './toast/toast.module';
+import { CreateDocumentComponent } from './create-document/create-document.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ToastModule } from './toast/toast.module';
     ReportsComponent,
     DashboardComponent,
     MatDialogComponent,
-    PaymentsComponent
+    PaymentsComponent,
+    CreateDocumentComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,356 @@
+<!-- <div class="paper">
+  <div class="header">
+    <img src={{institution?.logo1}} alt="coat of arms" class="mt-2" />
+    <div class="header-title text-center mt-4">
+      <h5 class="text-success">
+        {{institution?.name}}<br />
+        {{institution?.address}}
+      </h5>
+    </div>
+    <img src={{institution?.logo2}} alt="high court logo" class="mt-2" />
+  </div>
+  <div class="panel text-white text-center">
+    <p>affidavit of change name</p>
+  </div>
+
+  <div class="declaration">
+      <div class="twins ">
+        <p class="twin c3">I {{affidavit.name}}</p>
+        <p class="twin c3">of</p>
+      </div>
+      <div class="twins mt-2">
+        {{affidavit.address}}
+        <p class="twin c3">do solemly</p>
+      </div>
+      <p class="mt-2">and Sincerely declare:</p>
+      <div class="twins mt-2">
+        <p class="twin c3">That I was formerly known and called: {{affidavit.formerlyCalled}}</p>
+      </div>
+      <div class="twins mt-2">
+        <p class="twin c3">Henceforth I wish to be known and called: {{affidavit.nowCalled}}</p>
+      </div>
+      <p class="mt-2">
+        That I am making this solemn declaration conscientiously believing same
+        to be true and correct in accordance with the Oaths Act of 1968.
+      </p>
+      <div class="twins">
+        <div class="form-inline mr-2">
+          <p>Date: {{affidavit.date}}</p>
+        </div>
+        <div class="text-center">
+          <input class="signature signature2" />
+          <p>Signature of Declarant</p>
+        </div>
+      </div>
+      <div class="twins mt-2">
+        <p class="twin c3">Sworn to at the {{affidavit.courtName}}</p>
+        <p class="twin c3">Registry</p>
+      </div>
+
+      <div class="form-inline mt-2">
+        <p>
+          This {{affidavit.presentDay}} day
+          of
+          {{affidavit.presentMonthYear}}
+        </p>
+      </div>
+      <p class="mt-2 mb-2">
+        The foregoing has been read over and interpreted by the declarant from
+      </p>
+      <div class="form-inline">
+        <p>
+          {{affidavit.fromLanguage}} Language
+          to {{affidavit.toLanguage}} Language by
+          {{affidavit.interpreter}}
+        </p>
+      </div>
+      <p class="mt-2 mb-2">
+        The above has been read to me and I understand same before affixing my
+        thumb impression there to.
+      </p>
+
+      <div class="d-flex justify-content-end">
+        <p class="mt-4">Signature of Interpreter</p>
+        <input class="signature signature2" />
+      </div>
+
+      <div class="footer mt-4">
+        <div>
+          <div class="form-inline mt-3 d-none">
+            <label for="fees" class="mr-sm-2"><strong>Fees Paid:</strong></label>
+            <input type="fees" class="mb-2 mr-sm-2" placeholder="500" />
+          </div>
+          <div class="form-inline d-none">
+            <label for="teller" class="mr-sm-2"><strong>Receipt/Bank Teller No:</strong></label>
+            <input type="teller" class="mb-2 mr-sm-2" placeholder="11597697" />
+          </div>
+        </div>
+        <div class="mt-1 ml-3">
+          <i><em>Affix Thumb Print Here</em></i>
+          <textarea></textarea>
+        </div>
+      </div>
+      <div class="form-inline">
+        <label for="date" class="mr-sm-2"><strong>Date:</strong></label>
+        {{affidavit.date}}
+      </div>
+      <div class="d-flex justify-content-end mt-3">
+        <div class="oath text-center mr-2">
+          <p>Before Me</p>
+        </div>
+        <div>
+          <input class="signature signature2" />
+          <p class="text-capitalize"><strong>Commisioner of Oaths</strong></p>
+        </div>
+      </div>
+      <button class="btn-block mt-4 main" type="submit">Submit</button>
+  </div>
+</div>
+ -->
+
+ <!--mine-->
+ <!--MINE-->
+
+ <!-- <div class="paper">
+        <div class="header">
+          <img src={{institution?.logo1}} alt="coat of arms" class="mt-2" />
+          <div class="header-title text-center mt-4">
+            <h5 class="text-success">
+              {{institution?.name}}<br />
+              {{institution?.address}}
+            </h5>
+          </div>
+          <img src={{institution?.logo2}} alt="high court logo" class="mt-2" />
+        </div>
+        <div class="panel text-white text-center">
+          <p>affidavit of change name</p>
+        </div>
+      
+        <div class="declaration">
+            <p>I {{affidavit.name}} of <br>
+                {{affidavit.address}} do solemnly<br>
+                 and Sincerely declare:<br>
+                 That I was formerly known and called: {{affidavit.formerlyCalled}}. <br>
+                 Henceforth I wish to be known and called: {{affidavit.nowCalled}}<br>
+                That I am making this solemn declaration conscientiously believing same to be true 
+                and <br>
+                correct in accordance with the Oaths Act of 1968<br>
+                Date: {{affidavit.date}} Signature<br>
+                Sworn to at the {{affidavit.courtName}} Registry<br>
+                This {{affidavit.presentDay}} of {{affidavit.presentMonthYear}}<br>
+                The following has been read over and interpreted by the declarant from
+                {{affidavit.fromLanguage}} Language
+                to {{affidavit.toLanguage}} Language by
+                {{affidavit.interpreter}}<br>
+                The above has been read to me and I understand same before affixing my
+                thumb impression there to.
+                Affix thumb print here<br>
+                {{affidavit.date}}<br>
+                Before me:<br>
+                Commisisoner of oaths
+                
+            </p>
+            <div class="twins ">
+              <p class="twin c3">I {{affidavit.name}}</p>
+              <p class="twin c3">of {{affidavit.address}}</p>
+            </div>
+            <div class="twins mt-2">
+              {{affidavit.address}}
+              <p class="twin c3">do solemly</p>
+            </div>
+            <p class="mt-2">and Sincerely declare:</p>
+            <div class="twins mt-2">
+              <p class="twin c3">That I was formerly known and called: {{affidavit.formerlyCalled}}</p>
+            </div>
+            <div class="twins mt-2">
+              <p class="twin c3">Henceforth I wish to be known and called: {{affidavit.nowCalled}}</p>
+            </div>
+            <p class="mt-2">
+              That I am making this solemn declaration conscientiously believing same
+              to be true and correct in accordance with the Oaths Act of 1968.
+            </p>
+            <div class="twins">
+              <div class="form-inline mr-2">
+                <p>Date: {{affidavit.date}}</p>
+              </div>
+              <div class="text-center">
+                <input class="signature signature2" />
+                <p>Signature of Declarant</p>
+              </div>
+            </div>
+            <div class="twins mt-2">
+              <p class="twin c3">Sworn to at the {{affidavit.courtName}}</p>
+              <p class="twin c3">Registry</p>
+            </div>
+      
+            <div class="form-inline mt-2">
+              <p>
+                This {{affidavit.presentDay}} day
+                of
+                {{affidavit.presentMonthYear}}
+              </p>
+            </div>
+            <p class="mt-2 mb-2">
+              The foregoing has been read over and interpreted by the declarant from
+            </p>
+            <div class="form-inline">
+              <p>
+                {{affidavit.fromLanguage}} Language
+                to {{affidavit.toLanguage}} Language by
+                {{affidavit.interpreter}}
+              </p>
+            </div>
+            <p class="mt-2 mb-2">
+              The above has been read to me and I understand same before affixing my
+              thumb impression there to.
+            </p>
+      
+            <div class="d-flex justify-content-end">
+              <p class="mt-4">Signature of Interpreter</p>
+              <input class="signature signature2" />
+            </div>
+      
+            <div class="footer mt-4">
+              <div>
+                <div class="form-inline mt-3 d-none">
+                  <label for="fees" class="mr-sm-2"><strong>Fees Paid:</strong></label>
+                  <input type="fees" class="mb-2 mr-sm-2" placeholder="500" />
+                </div>
+                <div class="form-inline d-none">
+                  <label for="teller" class="mr-sm-2"><strong>Receipt/Bank Teller No:</strong></label>
+                  <input type="teller" class="mb-2 mr-sm-2" placeholder="11597697" />
+                </div>
+              </div>
+              <div class="mt-1 ml-3">
+                <i><em>Affix Thumb Print Here</em></i>
+                <textarea></textarea>
+              </div>
+            </div>
+            <div class="form-inline">
+              <label for="date" class="mr-sm-2"><strong>Date:</strong></label>
+              {{affidavit.date}}
+            </div>
+            <div class="d-flex justify-content-end mt-3">
+              <div class="oath text-center mr-2">
+                <p>Before Me</p>
+              </div>
+              <div>
+                <input class="signature signature2" />
+                <p class="text-capitalize"><strong>Commisioner of Oaths</strong></p>
+              </div>
+            </div>
+            <button class="btn-block mt-4 main" type="submit">Submit</button>
+        </div>
+    </div>
+      
+       -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       <!--TEST-->
+       <!--TEST-->
+
+       <div class="paper">
+            <div class="header">
+              <img src={{institution?.logo1}} alt="coat of arms" class="mt-2" />
+              <div class="header-title text-center mt-4">
+                <h5 class="text-success">
+                  {{institution?.name}}<br />
+                  {{institution?.address}}
+                </h5>
+              </div>
+              <img src={{institution?.logo2}} alt="high court logo" class="mt-2" />
+            </div>
+            <div class="panel text-white text-center">
+              <p>{{affidavit.documentName}}</p>
+            </div>
+          
+            <div class="declaration">
+              <form>
+          
+                <p>I {{affidavit.name}} of</p>       
+                
+                <p class="mt-2">{{affidavit.address}} do solemnly</p>          
+          
+                <div class="form-inline mt-2">
+                  <p>and sincerely declare: </p>
+                </div>
+                <div class="form-inline mt-2">
+                    <p>That I was formerly known and called {{affidavit.formerlyCalled}}</p>
+                </div>
+                <div class="form-inline mt-2">
+                    <p>Henceforth I wish to be known and called {{affidavit.nowCalled}}</p>
+                </div>
+                <div class="form-inline mt-2">
+                    <p>That I am making this solemn declaration conscientiously believing same to be true and
+                        correct in accordance with the Oaths Act of 1968<br></p>
+                </div>
+                <div class="form-inline mt-2" style="display:flex;  justify-content: space-between">
+                    <div>
+                        <p>Date: {{affidavit.date | date: 'dd/MM/yyyy'}}</p>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <div class="ml-4">
+                            <input class="signature signature1" />
+                            <p>declarant</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-inline mt-2">
+                  <p>sworn to at the {{affidavit.courtName}} registry<br>
+                    this {{affidavit.presentDay}}<sup class="text-lowercase text-small text-muted">th</sup>
+                    day of {{affidavit.presentMonthYear}}.
+                  </p>
+                </div>
+                <p class="mt-2 mb-2">The foregoing has been read over and interpreted by the declarant from
+          
+                  {{affidavit.fromLanguage}}
+                  language to {{affidavit.toLanguage}}
+                  language by {{affidavit.interpreter}}
+          
+                </p>
+          
+                <div class="d-flex justify-content-end">
+          
+                  <p class="mt-3">Signature of interpreter</p>
+                  <input class="signature signature2" />
+                </div>
+                <p>The above has been interpreted to me and i understand same before affixing my thumb impression there to</p>
+          
+                <div class="footer">
+          
+                  <div class="mt-1 thumb">
+                    <i><em>Affix Thumb Print Here</em></i>
+                    <textarea></textarea>
+                  </div>
+          
+                </div>
+                <div class="form-inline mt-2">
+                  <label for="date" class="mr-sm-2"><strong>Date: {{affidavit.date | date: 'dd/MM/yyyy'}}</strong></label>
+          
+                </div>
+          
+                <div class="d-flex justify-content-end">
+                  <div class="oath text-center mr-2">
+                    <p>Before Me</p>
+                  </div>
+                  <div>
+                    <input class="signature signature2" />
+                    <p class="text-capitalize">Commisioner of Oaths</p>
+                  </div>
+                </div>
+          
+              </form>
+            </div>
+          </div>

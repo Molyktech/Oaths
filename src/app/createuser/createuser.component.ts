@@ -19,6 +19,7 @@ export class CreateuserComponent implements OnInit {
   createUserForm;
   users:User[];
   loading=true;
+  loading2=false;
   constructor(
     private modalService: NgbModal,
     private roleService: RolesService,
@@ -83,11 +84,15 @@ export class CreateuserComponent implements OnInit {
   }
 
   createUser() {
+    this.loading2=true
     this.createUserForm.value.institutionID = 1;
     this.createUserForm.value.roleID=this.roles.find(x=> {return x.name==this.createUserForm.value.role}).id
     delete this.createUserForm.value.role
     //console.log(this.createUserForm.value);
     this.loginService.createUser(this.createUserForm.value).subscribe(data => {
+      this.loading2=false
+      this.getUsersByInstittutionId()
+      this.modalService.dismissAll('')
     },
       err => {
     });
@@ -95,6 +100,7 @@ export class CreateuserComponent implements OnInit {
 
   getUsersByInstittutionId(){
     this.loginService.getUsers(1).subscribe(data=>{
+      console.log("users",data)
       this.users=<User[]>data
       this.loading=false
     },

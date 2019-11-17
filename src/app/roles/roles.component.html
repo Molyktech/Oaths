@@ -33,7 +33,10 @@
       </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="onSave()">Save</button>
+      <div class="loader2" *ngIf="loading2"></div>
+    <button type="button" class="btn btn-outline-dark" (click)="onSave()">
+      Save
+    </button>
   </div>
 </ng-template>
 
@@ -41,25 +44,22 @@
 
 <button class="btn btn-lg btn-outline-primary mt-4 mr-4 mb-4" (click)="open(content)" style="float:right"><i class="material-icons">add</i> Add Role</button>
 
-
-<div class="container" *ngIf="!loading">
-  <table>
-      <thead>
+<div class="table table-responsive mt-4">
+    <hr>
+    <table style="margin-top:20px">
         <tr>
-          <th class="index">S/N</th>
-          <th style="text-align: center; font-weight:bold">Name</th>
-          <th>Actions</th>
+            <th>S/N</th>
+            <th>Name</th>
+            <th></th>
         </tr>
-      </thead>
-      <tbody>
-        <!-- <tr *ngFor="let role of roles; index as i" (click)="open(editrolemodal)" (click)="editrole(role)" style="cursor:pointer"> -->
-            <tr *ngFor="let role of fakeRoles; index as i" (click)="open(editrolemodal)" (click)="editrole(role)" style="cursor:pointer">
-          <th class="index">{{i+1}}</th>
-          <td style="font-weight: bold; text-align: center">{{role.name}}</td>
-          <td><i class="material-icons">create</i></td>
+        <tr *ngFor="let role of roles; index as i"
+        (click)="open(editrolemodal)" (click)="editrole(role)" 
+        style="cursor:pointer">
+            <td>{{i+1}}</td>
+            <td>{{role.name | uppercase}}</td>
+            <td style="text-align: center"><i class="material-icons">create</i></td>
         </tr>
-      </tbody>
-  </table>
+    </table>                      
 </div>
 <div class="loader mt-4" *ngIf="loading"></div>
 
@@ -95,6 +95,9 @@
       </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="updateRole()">Save</button>
+      <div class="loader2" *ngIf="loading2"></div>
+    <button type="button" class="btn btn-outline-dark" (click)="updateRole()">
+      Save
+    </button>
   </div>
 </ng-template>

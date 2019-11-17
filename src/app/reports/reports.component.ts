@@ -30,6 +30,7 @@ export class ReportsComponent implements OnInit {
 
   getReports(){
     this.reportsService.getReports(this.currentUser.institutionID,0,0).subscribe(data=>{
+      console.log(data)
       this.reports=<any>data
       let paid = this.reports.filter(x=>{return x.isPaid == true})
       let unpaid = this.reports.filter(x=>{return x.isPaid == false})

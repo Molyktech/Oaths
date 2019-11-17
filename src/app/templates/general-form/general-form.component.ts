@@ -27,7 +27,7 @@ export class GeneralFormComponent implements OnInit {
   generalForm: FormGroup;
   submitted = false;
   loading = false;
-  response: any
+  response: any;
   constructor(
     private institutionService: InstitutionService,
     private fb: FormBuilder,
@@ -56,7 +56,6 @@ export class GeneralFormComponent implements OnInit {
       interpreter: ['', Validators.required],
       presentDay: ['', Validators.required],
       presentMonthYear: ['', Validators.required]
-  
     });
   }
   get f() {
@@ -71,12 +70,12 @@ export class GeneralFormComponent implements OnInit {
       });
   }
   onSubmit(modal) {
-  this.submitted = true;
+    this.submitted = true;
     if (this.generalForm.invalid) {
       return;
     }
     this.loading = true;
-    const obj = this.generalForm.value ;
+    const obj = this.generalForm.value;
     obj.staffId = this.currentUser.id;
     obj.institutionId = this.currentUser.institutionID;
     this.documentService.saveAgeDeclaration(obj).subscribe(
@@ -105,11 +104,9 @@ export class GeneralFormComponent implements OnInit {
         this.openDialog('General Affidavit', `Failed ${error.statusText}`);
       }
     );
-  
-    
   }
 
-  onPrint(id){
+  onPrint(id) {
     Print.print(id);
   }
 

@@ -22,18 +22,37 @@ export class DocumentService {
     return this.http.post(`${this.url}/AgeDeclaration/save`, obj);
   }
 
-  saveMarriageDeclaration(obj){
-    return this.http.post(`${this.url}/Marriage/Save`,obj)
+  saveMarriageDeclaration(obj) {
+    return this.http.post(`${this.url}/Marriage/Save`, obj);
   }
-  getMarriageAgeNameGeneralById(urll,id){
-    return this.http.get(`${this.url}/${urll}/${id}`)
+  getMarriageAgeNameGeneralById(urll, id) {
+    return this.http.get(`${this.url}/${urll}/${id}`);
   }
 
   saveGeneralAffidavit(obj: GeneralAffidavit) {
     return this.http.post(`${this.url}/GeneralAffidavit/Save`, obj);
   }
 
-  getDocumentByRef(refNo){
-    return this.http.get(`${this.url}/Document/GetByDocumentRef/${refNo}`)
+  getDocumentByRef(refNo) {
+    return this.http.get(`${this.url}/Document/GetByDocumentRef/${refNo}`);
+  }
+
+  saveDocumentType(obj) {
+    return this.http.post(`${this.url}/DocumentType/Save`, obj);
+  }
+
+  getDocumentTypesByInstitution(id) {
+    return this.http.get(`${this.url}/DocumentType/GetByInstitution/${id}`);
+  }
+
+  updateDocumentType(obj) {
+    return this.http.post(`${this.url}/DocumentType/Update`, obj);
+  }
+
+  updatePrint(refNo: string, id: number) {
+    return this.http.post(`${this.url}/Document/UpatePrintTime/`, {
+      refNo,
+      id
+    });
   }
 }

@@ -13,12 +13,19 @@ import { RolesService } from '../services/roles.service';
 export class RolesComponent implements OnInit {
 
   menus = [
-    {name: 'Documents'},
+    {name: 'Dashboard'},
+    {name: 'Create User'},
     {name: 'Roles'},
     {name: 'Institution'},
-    {name: 'Payment'},
+    {name: 'Declaration of Age'},
+    {name: 'Declaration of Marriage'},
+    {name: 'Change of Name'},
+    {name: 'General form of Affidavit'},
+    {name: 'Payments'},
+    {name: 'Print'},
     {name: 'Reports'},
-    {name: 'Create Users'}
+    {name: 'Settings'},
+    {name: 'Create Document'}
   ];
 
   fakeRoles = [
@@ -38,6 +45,7 @@ export class RolesComponent implements OnInit {
   chosenRole;
   loading=true;
   displayedColumns: string[] = ['id', 'name'];
+  loading2=false
 
   constructor(
     private modalService: NgbModal,
@@ -68,6 +76,7 @@ export class RolesComponent implements OnInit {
       this.showErrorMsg = true;
     }
     if (this.roleName) {
+      this.loading2=true
       this.role = new Role;
       this.menus.forEach((menu, index) => {
       this.privileges.push({
@@ -84,6 +93,9 @@ export class RolesComponent implements OnInit {
       this.role.privileges = this.privileges;
       console.log(this.role)
       this.roleService.saveRole(this.role).subscribe(data => {
+        this.loading2=false
+        this.getRolesByInstitution()
+        this.modalService.dismissAll('')
         console.log(data);
         this.privileges = [];
         this.roleName = null;
@@ -97,6 +109,7 @@ export class RolesComponent implements OnInit {
   getRolesByInstitution() {
     this.roleService.getRoleByInstitutionId(1).subscribe(data => {
       this.loading=false
+      console.log("roles",data)
       this.roles = <Role[]> data;
     },
       err => {
@@ -109,7 +122,10 @@ export class RolesComponent implements OnInit {
   }
 
   updateRole() {
+    this.loading2=true
     this.roleService.updateRole(this.chosenRole).subscribe(data => {
+      this.loading2=false
+      this.modalService.dismissAll('')
       console.log(data)
     },
     err => {

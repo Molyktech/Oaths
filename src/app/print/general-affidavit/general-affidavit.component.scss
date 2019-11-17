@@ -75,21 +75,26 @@ body {
   font-weight: 700;
 }
 
+.panel p {
+  text-transform: uppercase;
+}
+
 .declaration {
   margin-top: 10px;
 }
 
-.declaration p,
-.declaration input {
+.declaration input,
+textarea {
   text-transform: uppercase;
 }
+
 
 .declaration input {
   padding: 5px;
 }
 
 .declaration p {
-  font-size: em;
+  font-size: 1em;
 }
 
 .input-sm {
@@ -136,6 +141,7 @@ input.signature2 {
 
 .footer {
   display: flex;
+
 }
 
 .oath {
@@ -149,23 +155,4 @@ input.signature2 {
 
 .oath p {
   margin: auto;
-}
-
-.head-text h3 {
-  letter-spacing: 1px;
-  padding: 10px;
-  font-weight: bolder;
-  font-family: Georgia, serif;
-  line-height: 1.3em;
-}
-
-.text-block p {
-  font-family: Georgia, serif;
-  letter-spacing: 1px;
-  word-spacing: 2px;
-  padding: 10px;
-}
-
-.modal-body {
-  margin-top: -150px !important;
 }

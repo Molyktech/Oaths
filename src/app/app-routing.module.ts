@@ -16,7 +16,10 @@ import { InstitutionComponent } from './institution/institution.component';
 import { ReportsComponent } from './reports/reports.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { PrintComponent } from './print/print.component';
-import { AuthGuard } from './util/auth.guard';
+//import { AuthGuard } from './util/auth.guard';
+import {AuthGuard} from './auth.guard'
+import { CreateDocumentComponent } from './create-document/create-document.component';
+
 
 const routes: Routes = [
   {
@@ -38,62 +41,80 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent,
-        data: { title: 'Dash' }
+        canActivate:[AuthGuard],
+        data: { title: 'Dashboard', read:true },
       },
       {
         path: 'document',
         component: AgeDeclarationComponent,
-        data: { title: 'Age' }
+        canActivate:[AuthGuard],
+        data: { title: 'Declaration of Age', read:true }
       },
       {
         path: 'marriage',
         component: MarriageComponent,
-        data: { title: 'Dash' }
+        canActivate:[AuthGuard],
+        data: { title: 'Declaration of Marriage', read:true }
       },
       {
         path: 'change-of-name',
         component: NameChangeComponent,
-        data: { title: 'Dash' }
+        canActivate:[AuthGuard],
+        data: { title: 'Change of Name', read:true }
       },
       {
         path: 'general',
         component: GeneralFormComponent,
-        data: { title: 'Dash' }
+        canActivate:[AuthGuard],
+        data: { title: 'General form of Affidavit', read:true }
       },
       {
         path: 'roles',
         component: RolesComponent,
-        data: { title: 'Roles Component' }
+        canActivate:[AuthGuard],
+        data: { title: 'Roles', read:true }
       },
       {
         path: 'addroles',
         component: AddrolesComponent,
-        data: { title: 'Addroles Component' }
+        canActivate:[AuthGuard],
+        data: { title: 'Addroles Component', read:true }
       },
       {
         path: 'createuser',
         component: CreateuserComponent,
-        data: { title: 'Createuser Component' }
+        canActivate:[AuthGuard],
+        data: { title: 'Create User', read:true }
       },
       {
         path: 'institution',
         component: InstitutionComponent,
-        data: { title: 'Institution Component' }
+        canActivate:[AuthGuard],
+        data: { title: 'Institution', read:true }
       },
       {
         path: 'reports',
         component: ReportsComponent,
-        data: { title: 'Reports Component' }
+        canActivate:[AuthGuard],
+        data: { title: 'Reports', read:true }
       },
       {
         path: 'payments',
         component: PaymentsComponent,
-        data: { title: 'Payments Component' }
+        canActivate:[AuthGuard],
+        data: { title: 'Payments', read:true }
       },
       {
         path: 'print',
         component: PrintComponent,
-        data: { title: 'Print Component' }
+        canActivate:[AuthGuard],
+        data: { title: 'Print', read:true }
+      },
+      {
+        path: 'createdocument',
+        component: CreateDocumentComponent,
+        //canActivate:[AuthGuard],
+        data: { title: 'Create Document', read:true }
       },
       { path: '**', redirectTo: '' }
     ]
