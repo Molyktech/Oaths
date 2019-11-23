@@ -9,15 +9,15 @@
   <br />
   <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
     <mat-card fxFlex="30">
-      <app-card label="Users" total="12" percentage="100" [data]="cards">
+      <app-card label="Users" [total]="users" percentage="100" [data]="cards">
       </app-card>
     </mat-card>
     <mat-card fxFlex="35">
-      <app-card label="Paid" total="123" percentage="60" [data]="cards">
+      <app-card label="Paid" [total]="paidLength" percentage="60" [data]="cards">
       </app-card>
     </mat-card>
     <mat-card fxFlex="35">
-      <app-card label="Unpaid" total="23" percentage="40" [data]="cards">
+      <app-card label="Unpaid" [total]="unpaidLength" percentage="40" [data]="cards">
       </app-card>
     </mat-card>
 

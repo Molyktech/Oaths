@@ -126,10 +126,29 @@
           Print
         </button>
       </mat-list-item>
-      <mat-list-item routerLink="reports">
-        <button class="menu-item" mat-flat-button [ngStyle]="{'color':'#00787A'}">
-          <mat-icon>report</mat-icon>
+
+
+      <mat-list-item>
+        <button class="menu-item" mat-flat-button (click)="dropDown()" [ngStyle]="{'color':'#00787A'}">
+          <mat-icon class="routeIcon">report</mat-icon>
           Reports
+          <span fxFlex></span>
+          <mat-icon [@indicatorRotate]="drop ? 'drop': 'collapsed'" [ngStyle]="{'font-size':'18px'}">
+            expand_more
+          </mat-icon>
+        </button>
+      </mat-list-item>
+      <mat-list-item *ngIf="drop" routerLink="reports">
+        <button class="menu-item" mat-flat-button [ngStyle]="{'color':'#00787A'}">
+          <mat-icon>file_copy</mat-icon>
+          Payment Report
+        </button>
+      </mat-list-item>
+      <mat-list-item *ngIf="drop">
+        <button routerLink="transaction-reports" routerLinkActive="active" class="menu-item" mat-flat-button
+          [ngStyle]="{'color':'#00787A'}">
+          <mat-icon class="routeIcon">menu_book</mat-icon>
+          Transaction Report
         </button>
       </mat-list-item>
 
@@ -141,12 +160,7 @@
       </mat-list-item>
 
 
-      <mat-list-item routerLink="charts">
-        <button class="menu-item" mat-flat-button [ngStyle]="{'color':'#00787A'}">
-          <mat-icon>settings_application</mat-icon>
-          Charts
-        </button>
-      </mat-list-item>
+
     </mat-list>
 
   </mat-sidenav>

@@ -5,14 +5,19 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ReportsService {
-
   url = 'https://mercatoroathapi.azurewebsites.net/api';
 
-  constructor(
-    private httpClient: HttpClient
-  ) { }
+  constructor(private httpClient: HttpClient) {}
 
-  getReports(id,startDate,endDate){
-    return this.httpClient.get(`${this.url}/Report/GetPaymentReport/${id}/${startDate}/${endDate}`)
+  getReports(id, startDate, endDate) {
+    return this.httpClient.get(
+      `${this.url}/Report/GetPaymentReport/${id}/${startDate}/${endDate}`
+    );
+  }
+
+  getTransactionReport(institutionId: number) {
+    return this.httpClient.get(
+      `${this.url}/TransactionReport/GetByInstitutionID/${institutionId}`
+    );
   }
 }

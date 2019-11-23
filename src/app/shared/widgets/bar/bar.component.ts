@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from "@angular/core";
-import * as Highcharts from "highcharts";
-import HC_exporting from "highcharts/modules/exporting";
+import { Component, OnInit, Input } from '@angular/core';
+import * as Highcharts from 'highcharts';
+import HC_exporting from 'highcharts/modules/exporting';
 
 @Component({
-  selector: "app-bar",
-  templateUrl: "./bar.component.html",
-  styleUrls: ["./bar.component.scss"]
+  selector: 'app-bar',
+  templateUrl: './bar.component.html',
+  styleUrls: ['./bar.component.scss']
 })
 export class BarComponent implements OnInit {
   @Input() data = [];
@@ -16,35 +16,35 @@ export class BarComponent implements OnInit {
   ngOnInit() {
     this.chartOptions = {
       chart: {
-        type: "column"
+        type: 'column'
       },
       title: {
-        text: "Monthly Average Affidavits"
+        text: 'Monthly Average Affidavits'
       },
       subtitle: {
         text: null
       },
       xAxis: {
         categories: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec"
+          'Jan',
+          'Feb',
+          'Mar',
+          'Apr',
+          'May',
+          'Jun',
+          'Jul',
+          'Aug',
+          'Sep',
+          'Oct',
+          'Nov',
+          'Dec'
         ],
         crosshair: true
       },
       yAxis: {
         min: 0,
         title: {
-          text: "Affidavits Issued"
+          text: 'Affidavits Issued'
         }
       },
       tooltip: {
@@ -52,7 +52,7 @@ export class BarComponent implements OnInit {
         pointFormat:
           '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
           '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-        footerFormat: "</table>",
+        footerFormat: '</table>',
         shared: true,
         useHTML: true
       },
@@ -68,12 +68,44 @@ export class BarComponent implements OnInit {
       exporting: {
         enabled: true
       },
-      series: this.data
+      series: this.data,
+      responsive: {
+        rules: [
+          {
+            condition: {
+              maxWidth: 500
+            },
+            chartOptions: {
+              legend: {
+                align: 'center',
+                verticalAlign: 'bottom',
+                layout: 'horizontal'
+              },
+              yAxis: {
+                labels: {
+                  align: 'left',
+                  x: 0,
+                  y: -5
+                },
+                title: {
+                  text: null
+                }
+              },
+              subtitle: {
+                text: null
+              },
+              credits: {
+                enabled: false
+              }
+            }
+          }
+        ]
+      }
     };
     HC_exporting(Highcharts);
 
     setTimeout(() => {
-      window.dispatchEvent(new Event("resize"));
+      window.dispatchEvent(new Event('resize'));
     }, 300);
   }
 }
