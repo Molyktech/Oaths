@@ -65,10 +65,10 @@
 
     <div class="twins mt-2">
       <div class="form-inline mr-2 c3">
-        <p>Date: {{affidavit.date}}
+        <p>Date: {{affidavit.date | date: 'dd/MM/yyyy'}}
         </p>
       </div>
-      <div class="text-center c9">
+      <div class="text-center c9 declarant">
         <input class="signature signature2" />
         <p>Signature or Mark of Declarant</p>
       </div>
@@ -80,7 +80,7 @@
 
     <div class="form-inline mt-2">
       <p>
-        This {{affidavit.presentDay}}
+        This {{affidavit.presentDay}}<sup class="text-lowercase text-small text-muted">th</sup>
         day
         of {{affidavit.presentMonthYear | titlecase}}
 
@@ -103,7 +103,7 @@
       affixing my thumb impression there to.
     </p>
 
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-end declarant">
       <p class="mt-4">Signature of Interpreter</p>
       <input class="signature signature2" />
     </div>
@@ -122,17 +122,17 @@
         </div>
 
       </div>
-      <div class="mt-1 ml-3 thumb-print">
+      <div class="mt-1 ml-3 thumb-print thumb">
         <i><em>Affix Thumb Print Here</em></i>
         <textarea></textarea>
       </div>
     </div>
     <div class="form-inline">
-      <label for="date" class="mr-sm-2"><strong>Date:</strong>{{affidavit.date}}</label>
+      <label for="date" class="mr-sm-2"><strong>Date:</strong>{{affidavit.date | date: 'dd/MM/yyyy'}}</label>
 
 
     </div>
-    <div class="d-flex justify-content-end mt-3 oath-head">
+    <div class="d-flex justify-content-end mt-3 oath-head commissioner">
       <div class="oath text-center mr-2">
         <p>Before Me</p>
       </div>

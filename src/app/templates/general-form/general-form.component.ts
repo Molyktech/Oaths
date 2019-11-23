@@ -78,7 +78,7 @@ export class GeneralFormComponent implements OnInit {
     const obj = this.generalForm.value;
     obj.staffId = this.currentUser.id;
     obj.institutionId = this.currentUser.institutionID;
-    this.documentService.saveAgeDeclaration(obj).subscribe(
+    this.documentService.saveGeneralAffidavit(obj).subscribe(
       res => {
         this.response = res;
         console.log(res);

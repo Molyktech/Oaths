@@ -49,10 +49,7 @@ export class DocumentService {
     return this.http.post(`${this.url}/DocumentType/Update`, obj);
   }
 
-  updatePrint(refNo: string, id: number) {
-    return this.http.post(`${this.url}/Document/UpatePrintTime/`, {
-      refNo,
-      id
-    });
+  updatePrint(obj) {
+    return this.http.post(`${this.url}/Document/UpdatePrintTime`, obj);
   }
 }

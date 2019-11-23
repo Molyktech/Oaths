@@ -143,6 +143,10 @@ input.signature2 {
   display: flex;
 
 }
+.thumb {
+  display: flex;
+  flex-direction: column-reverse;
+}
 
 .oath {
   border: 2px solid rgb(65, 65, 65);

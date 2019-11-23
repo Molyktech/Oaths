@@ -1,8 +1,9 @@
-<mat-toolbar id="mainToolbar" color="primary">
-  <mat-icon (click)="onToolbarMenuToggle()" id="toolbarMenu">subject</mat-icon>
+<mat-toolbar id="mainToolbar" [ngStyle]="{'background': '#006644', 'color':'#fff'}">
+  <mat-icon (click)=" onToolbarMenuToggle()" id="toolbarMenu">subject</mat-icon>
   Court App
   <span class="toolbar-spacer"></span>
-  <mat-icon class="toolbar-icon" matBadge="8" matBadgePosition="after" matBadgeColor="accent">notifications</mat-icon>
+  <mat-icon class="toolbar-icon" matBadge="1" matBadgePosition="after">notifications
+  </mat-icon>
   <button class="menu-item ml-4" mat-flat-button (click)="logOut()">
     Log Out
   </button>
@@ -12,22 +13,24 @@
   <mat-sidenav mode="side" #sidenav id="sidenav" [class.menu-open]="isMenuOpen" [class.menu-close]="!isMenuOpen" opened>
     <mat-list id="menus">
       <mat-card>
-        <mat-card-header>
+        <mat-card-header [ngStyle]="{'color':'#00787A'}">
           <div mat-card-avatar class="avatar"></div>
 
           <mat-card-title>{{user.firstName}}</mat-card-title>
-          <mat-card-subtitle>{{user.role.name}}</mat-card-subtitle>
+          <mat-card-subtitle [ngStyle]="{'color':'#05ac72'}">{{user.role.name}}</mat-card-subtitle>
         </mat-card-header>
       </mat-card>
       <mat-list-item>
-        <button class="menu-item" mat-flat-button routerLink="/navigation/dashboard" routerLinkActive="active">
+        <button class="menu-item" mat-flat-button routerLink="/navigation/dashboard" routerLinkActive="active"
+          [ngStyle]="{'color':'#00787A'}">
           <mat-icon>dashboard</mat-icon>
           Dashboard
         </button>
       </mat-list-item>
 
       <mat-list-item>
-        <button class="menu-item" mat-flat-button (click)="openDropdown()" [ngStyle]="{'padding-left': '10px'}">
+        <button class="menu-item" mat-flat-button (click)="openDropdown()"
+          [ngStyle]="{'padding-left': '10px', 'color':'#00787A'}">
           <mat-icon>work</mat-icon>
           Admin
           <span fxFlex></span>
@@ -37,25 +40,29 @@
         </button>
       </mat-list-item>
       <mat-list-item *ngIf="open">
-        <button routerLink="createuser" routerLinkActive="active" class="menu-item" mat-flat-button>
+        <button routerLink="createuser" routerLinkActive="active" class="menu-item" mat-flat-button
+          [ngStyle]="{'color':'#00787A'}">
           <mat-icon class="routeIcon">group</mat-icon>
           Create User
         </button>
       </mat-list-item>
       <mat-list-item *ngIf="open">
-          <button routerLink="createdocument" routerLinkActive="active" class="menu-item" mat-flat-button>
-            <mat-icon class="routeIcon">group</mat-icon>
-            Create Document
-          </button>
-        </mat-list-item>
+        <button routerLink="createdocument" routerLinkActive="active" class="menu-item" mat-flat-button
+          [ngStyle]="{'color':'#00787A'}">
+          <mat-icon class="routeIcon">group</mat-icon>
+          Create Document
+        </button>
+      </mat-list-item>
       <mat-list-item *ngIf="open">
-        <button routerLink="roles" routerLinkActive="active" class="menu-item" mat-flat-button>
+        <button routerLink="roles" routerLinkActive="active" class="menu-item" mat-flat-button
+          [ngStyle]="{'color':'#00787A'}">
           <mat-icon class="routeIcon">group</mat-icon>
           Roles
         </button>
       </mat-list-item>
       <mat-list-item *ngIf="open">
-        <button routerLink="institution" routerLinkActive="active" class="menu-item" mat-flat-button>
+        <button routerLink="institution" routerLinkActive="active" class="menu-item" mat-flat-button
+          [ngStyle]="{'color':'#00787A'}">
           <mat-icon class="routeIcon">location_city</mat-icon>
           Institution
         </button>
@@ -64,7 +71,7 @@
       <mat-list-item *ngFor="let item of navItems">
         <button (click)="onItemSelected(item)"
           [ngClass]="{'active': item.route ? router.isActive(item.route, true): false, 'expanded': expanded}"
-          class="menu-item" mat-flat-button>
+          class="menu-item" mat-flat-button [ngStyle]="{'color':'#00787A'}">
           <mat-icon class="routeIcon ">{{item.iconName}}</mat-icon>
           {{item.displayName}}
           <span fxFlex *ngIf="item.children && item.children.length">
@@ -76,56 +83,68 @@
         </button>
       </mat-list-item>
       <mat-list-item *ngIf="expanded">
-        <button routerLink="/navigation/document" routerLinkActive="active" class="menu-item" mat-flat-button>
+        <button routerLink="/navigation/document" routerLinkActive="active" class="menu-item" mat-flat-button
+          [ngStyle]="{'color':'#00787A'}">
           <mat-icon class="routeIcon">recent_actors</mat-icon>
           Declaration of Age
         </button>
 
       </mat-list-item>
       <mat-list-item *ngIf="expanded">
-        <button routerLink="/navigation/marriage" routerLinkActive="active" class="menu-item" mat-flat-button>
+        <button routerLink="/navigation/marriage" routerLinkActive="active" class="menu-item" mat-flat-button
+          [ngStyle]="{'color':'#00787A'}">
           <mat-icon class="routeIcon">recent_actors</mat-icon>
           Declaration of Marriage
         </button>
 
       </mat-list-item>
       <mat-list-item *ngIf="expanded">
-        <button routerLink="/navigation/change-of-name" routerLinkActive="active" class="menu-item" mat-flat-button>
+        <button routerLink="/navigation/change-of-name" routerLinkActive="active" class="menu-item" mat-flat-button
+          [ngStyle]="{'color':'#00787A'}">
           <mat-icon class="routeIcon">recent_actors</mat-icon>
           Change of Name
         </button>
 
       </mat-list-item>
       <mat-list-item *ngIf="expanded">
-        <button routerLink="/navigation/general" routerLinkActive="active" class="menu-item" mat-flat-button>
+        <button routerLink="/navigation/general" routerLinkActive="active" class="menu-item" mat-flat-button
+          [ngStyle]="{'color':'#00787A'}">
           <mat-icon class="routeIcon">recent_actors</mat-icon>
           General Form of Affidavit
         </button>
 
       </mat-list-item>
       <mat-list-item>
-        <button class="menu-item" mat-flat-button routerLink="/navigation/payments">
+        <button class="menu-item" mat-flat-button routerLink="/navigation/payments" [ngStyle]="{'color':'#00787A'}">
           <mat-icon>local_atm</mat-icon>
           Payments
         </button>
       </mat-list-item>
       <mat-list-item routerLink="print">
-        <button class="menu-item" mat-flat-button>
+        <button class="menu-item" mat-flat-button [ngStyle]="{'color':'#00787A'}">
           <mat-icon>file_copy</mat-icon>
           Print
         </button>
       </mat-list-item>
       <mat-list-item routerLink="reports">
-        <button class="menu-item" mat-flat-button>
+        <button class="menu-item" mat-flat-button [ngStyle]="{'color':'#00787A'}">
           <mat-icon>report</mat-icon>
           Reports
         </button>
       </mat-list-item>
 
       <mat-list-item>
-        <button class="menu-item" mat-flat-button>
+        <button class="menu-item" mat-flat-button [ngStyle]="{'color':'#00787A'}">
           <mat-icon>settings_application</mat-icon>
           Settings
+        </button>
+      </mat-list-item>
+
+
+      <mat-list-item routerLink="charts">
+        <button class="menu-item" mat-flat-button [ngStyle]="{'color':'#00787A'}">
+          <mat-icon>settings_application</mat-icon>
+          Charts
         </button>
       </mat-list-item>
     </mat-list>

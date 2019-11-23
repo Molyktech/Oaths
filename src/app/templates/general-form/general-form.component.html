@@ -127,7 +127,7 @@
 
       <div class="form-inline mt-2">
         <p>
-          This <input type="text" placeholder="18th" formControlName="presentDay" name="day" [ngClass]="{ 'is-invalid': submitted && f.presentDay.errors }"  />
+          This <input type="number" placeholder="18th" formControlName="presentDay" name="day" [ngClass]="{ 'is-invalid': submitted && f.presentDay.errors }"  />
           <span *ngIf="(f.presentDay.dirty && f.presentDay.invalid) || (submitted && f.presentDay.errors)"
           class="alert alert-danger">
           <small *ngIf="f.presentDay.errors.required">Day is required</small>

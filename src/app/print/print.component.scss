@@ -6,7 +6,7 @@
   margin: 2em auto;
   padding: 1.250em;
   border-radius: 0.313em;
-  box-shadow: 0 2px 5px 0 rgba(255, 240, 251, 0.5);
+  box-shadow: 0 2px 5px 0 rgba(58, 74, 75, 0.5);
   line-height: 1.5em;
   height: 240px;
   color: #292929;
@@ -20,7 +20,7 @@
   line-height: 1.475em;
   color: #fff;
   border-radius: 0 0.156em 0.156em 0;
-  background: gainsboro;
+  background: #94EBD8;
   box-shadow: -1px 2px 3px rgba(223, 223, 223, 0.5);
 }
 
@@ -44,7 +44,8 @@
 .ribbon:after {
   width: 0.313em;
   height: 0.313em;
-  background: rgba(0, 0, 0, 0.35);
+  background: #94EBD8;
+
   bottom: -0.313em;
   left: -0.313em;
   border-radius: 0.313em 0 0 0.313em;
@@ -74,7 +75,7 @@
   height: 50px;
   margin-top: 10px;
   text-align: center;
-  background: rebeccapurple;
+  background: #019C7C;
   color: #fff;
   border-radius: 6px;
 }

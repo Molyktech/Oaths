@@ -78,7 +78,10 @@
 }
 
 
-
+.thumb {
+  display: flex;
+  flex-direction: column-reverse;
+}
 
 
 .declaration p {
