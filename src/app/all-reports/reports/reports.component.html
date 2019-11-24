@@ -21,6 +21,8 @@
               </div>
         </div>
     </div>
+
+
   <div class="container mt-2" *ngIf="!loading">
     <table>
         <tr>
@@ -31,7 +33,7 @@
           <th class="tableHeader">Date Paid</th>
           <th class="tableHeader">Date Printed</th>
         </tr>
-        <tr *ngFor="let report of reports; index as i">
+        <tr *ngFor="let report of reports | paginate: { itemsPerPage: 10, currentPage: p }">
           <th class="index">{{ report.arn }}</th>
           <td style="text-align: center">
             {{ report.affidavitType }}
@@ -44,4 +46,6 @@
         </tr>
     </table>
   </div>
-</div>
+</div><br>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+

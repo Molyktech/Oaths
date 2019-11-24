@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
         if (res === null) {
           this.errorMessage = 'Error invalid login details';
         } else {
-          this.router.navigate(['/navigation']);
+          this.router.navigate(['/navigation/dashboard']);
         }
       },
       error => {

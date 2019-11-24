@@ -1,17 +1,73 @@
-<div class="container-fluid">
-
-  <div class="chart"></div>
+<div class="wrapper">
+  <app-toast></app-toast>
   <div class="header">
-    <table cellspacing="0">
-      <tr>
-        <th>arn</th>
-        <th>amount</th>
-        <th>fee</th>
-        <th>paymentChannel</th>
-        <th>paymentBank</th>
-        <th>paymentBankBranch</th>
-      </tr>
+    <h1>Transaction Report</h1>
+  </div>
+  <div *ngIf="fetching">
+    <h2 data-content="Loading...">Loading...</h2>
+  </div>
+  <div *ngIf="reports && reports.length && (!fetching)">
 
+
+    <form>
+      <!-- query -->
+      <label for="filter" class="search-filter ml-4">
+        <input type="date" id="filter" placeholder="&nbsp;" />
+        <span class="label">Show report from</span>
+        <span class="border"></span>
+      </label>
+      <label for="filter" class="search-filter ml-4">
+        <input type="date" id="filter" placeholder="&nbsp;" />
+        <span class="label">Show report to</span>
+        <span class="border"></span>
+      </label>
+
+      <button class="main ml-4">Show Report</button>
+
+    </form>
+    <label for="filter" class="search-filter mt-4">
+      <input type="text" id="filter" placeholder="&nbsp;" [(ngModel)]="searchText" name="searchText"
+        (keyup)="applyFilter($event.target.value)" />
+      <span class="label">Search </span>
+      <span class="border"></span>
+    </label>
+    <table cellspacing="0" class="container-fluid">
+      <thead>
+        <tr>
+          <th>arn</th>
+          <th>amount</th>
+          <th>fee</th>
+          <th>channel</th>
+          <th>Bank</th>
+          <th> Branch</th>
+          <th>Extra Detail</th>
+          <th>date</th>
+          <th>merchant ID</th>
+          <th>terminal ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let report of reports | filter: searchText | paginate: config">
+          <td>{{report.arn}}</td>
+          <td>{{report.amount}}</td>
+          <td>{{report.fee}}</td>
+          <td>{{report.paymentChannel}}</td>
+          <td>{{report.paymentBank}}</td>
+          <td>{{report.paymentBankBranch}}</td>
+          <td>{{report.extraDetail}}</td>
+          <td>{{report.dateCreated | date:'dd-MM-yyyy'}}</td>
+          <td>{{report.merchantID}}</td>
+          <td>{{report.terminalID}}</td>
+
+        </tr>
+      </tbody>
     </table>
+    <select [(ngModel)]="config.itemsPerPage" class="form-control mb-4 d-inline-block w-auto float-right">
+      <option>2</option>
+      <option *ngFor="let limit of [5, 10, 20, 30, 40, 50]">{{limit}}</option>
+    </select>
+    <pagination-controls (pageChange)="pageChanged($event)" responsive="true" screenReaderPaginationLabel="Pagination"
+      screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page" class="my-pagination">
+    </pagination-controls>
   </div>
 </div>

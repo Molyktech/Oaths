@@ -14,9 +14,11 @@ export class ReportsComponent implements OnInit {
   paidLength;
   unpaidLength;
   public doughnutChartLabels = ['Total Paid', 'Total Unpaid'];
-  //public doughnutChartData = [14,8];
   public doughnutChartData = [this.paidLength, this.unpaidLength];
   public doughnutChartType = 'doughnut';
+
+  p: number = 1;
+  collection: any[];  
 
   constructor(private reportsService: ReportsService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));

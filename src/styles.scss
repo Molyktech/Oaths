@@ -1,13 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Amarante');
 
 html,
 body {
   height: 100%;
+  font-family: 'Maitree', serif;
 }
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+
   line-height: 1;
 }
 
@@ -130,6 +132,7 @@ table {
 
 #mainToolbar .toolbar-spacer {
   flex: 1 1 auto;
+
 }
 
 #mainToolbar .toolbar-icon {
@@ -139,6 +142,7 @@ table {
 
 #sidenavContainer {
   margin-top: 64px;
+
 }
 
 #sidenav {
@@ -167,6 +171,7 @@ table {
   border-radius: 0;
   text-align: left;
   padding: 10px;
+  font-family: 'Maitree', serif;
 }
 
 #sidenav .menu-item:hover {
@@ -181,6 +186,7 @@ table {
 
 .dash-list h3 {
   padding: 12px;
+  font-family: 'Maitree', serif;
 }
 
 

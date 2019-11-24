@@ -1,39 +1,290 @@
 @import url('https://fonts.googleapis.com/css?family=Amarante');
 
+.wrapper {
+  width: 90%;
+  margin: 2em auto;
+}
+
 h1 {
   font-family: 'Amarante', Tahoma, sans-serif;
-  font-weight: bold;
   font-size: 3.6em;
   line-height: 1.7em;
   margin-bottom: 10px;
   text-align: center;
+  padding: 1rem;
+  text-transform: uppercase;
 }
 
-td {
+h2 {
+  color: rgba(177, 177, 177, 0.3);
+  font-size: 2.6em;
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 1rem;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+@keyframes loading {
+  from {
+    max-width: 0;
+  }
+}
+
+h2:before {
+  content: attr(data-content);
+  position: absolute;
+  overflow: hidden;
+  max-width: 4em;
+  color: #006644;
+  animation: loading 10s linear;
+}
+
+.search-filter {
+  position: relative;
+  margin: 10px auto;
+  width: 100%;
+  max-width: 380px;
+}
+
+.search-filter .label {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  font-size: 20px;
+  font-weight: 800;
+  font-family: 'Amarante', Tahoma, sans-serif;
+  color: #9098a9;
+  font-weight: 500;
+  transform-origin: 0 0;
+  transition: all 0.2s ease;
+}
+
+.search-filter .border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: #006644;
+  transform: scaleX(0);
+  transform-origin: 0 0;
+  transition: all 0.15s ease;
+}
+
+.search-filter input {
+  -webkit-appearance: none;
+  width: 100%;
+  border: 0;
+  font-family: inherit;
+  padding: 12px 0;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 2px solid #c8ccd4;
+  background: none;
+  border-radius: 0;
+  color: #006644;
+  transition: all 0.15s ease;
+}
+
+.search-filter input:hover {
+  background: rgba(34, 50, 84, 0.03);
+}
+
+.search-filter input:not(:placeholder-shown)+span {
+  color: #5a667f;
+  transform: translateY(-26px) scale(0.75);
+}
+
+.search-filter input:focus {
+  background: none;
+  outline: none;
+}
+
+.search-filter input:focus+span {
+  color: #006644;
+  transform: translateY(-26px) scale(0.75);
+}
+
+.search-filter input:focus+span+.border {
+  transform: scaleX(1);
+}
+
+
+table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  font-family: 'Maitree', serif;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+table * {
+  position: relative;
+}
+
+table td,
+table th {
+  padding-left: 8px;
+}
+
+table thead tr {
+
+  background-color: darken($color: #398b93, $amount: 20%);
+  padding: 0.5em;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+table thead th {
+  padding: 1.2em;
+}
+
+table tbody tr {
+  height: 40px;
+  border-bottom: 1px solid #E3F1D5;
+
+  &:nth-child(2n) {
+    background-color: white;
+  }
+
+  &:nth-child(2n+1) {
+    background-color: lighten($color: #398b93, $amount: 55%);
+  }
+
+  td {
+    padding: 1em;
+  }
+}
+
+table tbody tr:last-child {
+  border: 0;
+}
+
+table td {
+  text-align: left;
+  color: darken($color: #398B93, $amount: 20%)
+}
+
+table td {
   font-weight: normal;
   font-size: 1em;
   -webkit-box-shadow: 0 2px 2px -2px #0E1119;
   -moz-box-shadow: 0 2px 2px -2px #0E1119;
   box-shadow: 0 2px 2px -2px #0E1119;
-}
 
-tr:hover {
-  background-color: #464A52;
-  -webkit-box-shadow: 0 6px 6px -6px #0E1119;
-  -moz-box-shadow: 0 6px 6px -6px #0E1119;
-  box-shadow: 0 6px 6px -6px #0E1119;
 }
 
 td:hover {
   background-color: #FFF842;
   color: #403E10;
   font-weight: bold;
-
   box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
   transform: translate3d(6px, -6px, 0);
-
   transition-delay: 0s;
   transition-duration: 0.4s;
   transition-property: all;
   transition-timing-function: line;
+}
+
+td,
+th {
+  text-align: left;
+
+  &.l {
+    text-align: right
+  }
+
+  &.c {
+    text-align: center
+  }
+
+  &.r {
+    text-align: center
+  }
+}
+
+@media screen and (max-width: 48.8em) {
+  table {
+    display: block;
+  }
+
+  table>*,
+  table tr,
+  table td,
+  table th {
+    display: block;
+  }
+
+  table thead {
+    display: none;
+  }
+
+  table tbody tr {
+    height: auto;
+    padding: 8px 0;
+  }
+
+  table tbody tr td {
+    padding-left: 45%;
+    margin-bottom: 12px;
+  }
+
+  table tbody tr td:last-child {
+    margin-bottom: 0;
+  }
+
+  table tbody tr td:before {
+    position: absolute;
+    font-weight: 700;
+    width: 40%;
+    left: 10px;
+    top: 0;
+  }
+
+  table tbody tr td:nth-child(1):before {
+    content: 'ARN:';
+  }
+
+  table tbody tr td:nth-child(2):before {
+    content: 'Amount:';
+  }
+
+  table tbody tr td:nth-child(3):before {
+    content: 'Fee:';
+  }
+
+  table tbody tr td:nth-child(4):before {
+    content: 'Payment Channel:';
+  }
+
+  table tbody tr td:nth-child(5):before {
+    content: 'Payment Bank:';
+  }
+
+  table tbody tr td:nth-child(6):before {
+    content: 'Payment Branch:';
+  }
+
+  table tbody tr td:nth-child(7):before {
+    content: 'Extra Detail:';
+  }
+
+  table tbody tr td:nth-child(8):before {
+    content: 'Date:';
+  }
+
+  table tbody tr td:nth-child(9):before {
+    content: 'Merchant ID:';
+  }
+
+  table tbody tr td:nth-child(9):before {
+    content: 'Termina ID:';
+  }
 }
