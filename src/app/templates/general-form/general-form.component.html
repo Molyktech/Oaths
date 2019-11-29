@@ -22,78 +22,99 @@
     <form [formGroup]="generalForm" (ngSubmit)="onSubmit(content2)">
       <div class="twins ">
         <p class="twin c3">I</p>
-        <input type="text" formControlName="relativeName" placeholder="DORA MARY ANYANYA AKATU" [ngClass]="{ 'is-invalid': submitted && f.relativeName.errors }" class="lg c9 ml-2" />
-        
+        <input type="text" formControlName="relativeName" placeholder="DORA MARY ANYANYA AKATU"
+          [ngClass]="{ 'is-invalid': submitted && f.relativeName.errors }" class="lg c9 ml-2" />
+
         <p class="twin c3">of</p>
       </div>
-      <div *ngIf="(f?.relativeName.dirty && f?.relativeName.invalid) || (submitted && f.relativeName.errors)" class="alert alert-danger">
+      <div *ngIf="(f?.relativeName.dirty && f?.relativeName.invalid) || (submitted && f.relativeName.errors)"
+        class="alert alert-danger">
         <p *ngIf="f?.relativeName.errors.required">Name is required</p>
       </div>
       <div class="twins mt-2">
-        <input type="text" formControlName="address" placeholder="no. 15 policia street fha, nyanya, abuja" name="address"
-          class="lg c9 ml-2" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
+        <input type="text" formControlName="address" placeholder="no. 15 policia street fha, nyanya, abuja"
+          name="address" class="lg c9 ml-2" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
         <p class="twin c3">Make oaths and say:</p>
       </div>
       <div *ngIf="(f.address.touched && f.address.invalid) ||(submitted && f.address.errors)"
-      class="alert alert-danger">
-      <small *ngIf="f.address.errors.required">Address is required</small>
-    </div>
+        class="alert alert-danger">
+        <small *ngIf="f.address.errors.required">Address is required</small>
+      </div>
       <ol>
         <li>
           <div class="twins mt-2">
             <p class="twin c3">That </p>
-            <input type="text" formControlName="line1"  placeholder="i am th above named person and the depondent herein"
-              class="lg c9 ml-2" [ngClass]="{ 'is-invalid': submitted && f.line1.errors }"/>
+            <input type="text" formControlName="line1"
+              placeholder="i am the above named person and the depondent herein" class="lg c9 ml-2"
+              [ngClass]="{ 'is-invalid': submitted && f.line1.errors }" />
           </div>
-          <div *ngIf="(f.line1.dirty && f.line1.invalid) ||(submitted && f.line1.errors)"
-      class="alert alert-danger">
-      <small *ngIf="f.line1.errors.required">Statement is required</small>
-    </div>
+          <div *ngIf="(f.line1.dirty && f.line1.invalid) ||(submitted && f.line1.errors)" class="alert alert-danger">
+            <small *ngIf="f.line1.errors.required">Statement is required</small>
+          </div>
         </li>
         <li>
           <div class="twins mt-2">
             <p class="twin c3">That</p>
-            <textarea placeholder="i am the father of janet otunsha osagede. her name was wrongly spelt" formControlName="line2"
-               class="lg c9 ml-2" [ngClass]="{ 'is-invalid': submitted && f.line2.errors }"></textarea>
+            <textarea placeholder="i am the father of janet otunsha osagede. her name was wrongly spelt"
+              formControlName="line2" class="lg c9 ml-2"
+              [ngClass]="{ 'is-invalid': submitted && f.line2.errors }"></textarea>
           </div>
-          <div *ngIf="(f.line2.dirty && f.line2.invalid) ||(submitted && f.line2.errors)"
-          class="alert alert-danger">
-          <small *ngIf="f.line2.errors.required">Statement is required</small>
-        </div>
+          <div *ngIf="(f.line2.dirty && f.line2.invalid) ||(submitted && f.line2.errors)" class="alert alert-danger">
+            <small *ngIf="f.line2.errors.required">Statement is required</small>
+          </div>
         </li>
         <li>
           <div class="twins mt-2">
             <p class="twin c3">That</p>
-            <textarea placeholder="the correct spelling of her name is janet" formControlName="line3" 
-              class="lg c9 ml-2" [ngClass]="{ 'is-invalid': submitted && f.line3.errors }"></textarea>
+            <textarea placeholder="the correct spelling of her name is janet" formControlName="line3" class="lg c9 ml-2"
+              [ngClass]="{ 'is-invalid': submitted && f.line3.errors }"></textarea>
           </div>
-          <div *ngIf="(f.line3.dirty && f.line3.invalid) ||(submitted && f.line3.errors)"
-          class="alert alert-danger">
-          <small *ngIf="f.line3.errors.required">Statement is required</small>
-        </div>
+          <div *ngIf="(f.line3.dirty && f.line3.invalid) ||(submitted && f.line3.errors)" class="alert alert-danger">
+            <small *ngIf="f.line3.errors.required">Statement is required</small>
+          </div>
         </li>
-        <li>
+        <!-- <li>
           <div class="twins mt-2">
             <p class="twin c3">That</p>
-            <textarea placeholder="her date of birth was wrongly captured on her " formControlName="line4" 
+            <textarea placeholder="her date of birth was wrongly captured on her " formControlName="line4"
               class="lg c9 ml-2" [ngClass]="{ 'is-invalid': submitted && f.line4.errors }"></textarea>
           </div>
-          <div *ngIf="(f.line4.dirty && f.line4.invalid) ||(submitted && f.line4.errors)"
-          class="alert alert-danger">
-          <small *ngIf="f.line4.errors.required">Statement is required</small>
-        </div>
+          <div *ngIf="(f.line4.dirty && f.line4.invalid) ||(submitted && f.line4.errors)" class="alert alert-danger">
+            <small *ngIf="f.line4.errors.required">Statement is required</small>
+          </div>
         </li>
         <li>
           <div class="twins mt-2">
             <p class="twin c3">That</p>
-            <textarea formControlName="line5" placeholder="her true and correct date of birth is 17th" 
+            <textarea formControlName="line5" placeholder="her true and correct date of birth is 17th"
               class="lg c9 ml-2" [ngClass]="{ 'is-invalid': submitted && f.line5.errors }"></textarea>
           </div>
           <div *ngIf="(f.line5?.touched && f.line5?.invalid) ||(submitted && f.line5?.errors)"
-                class="alert alert-danger">
-          <small *ngIf="f.line5?.errors.required">Statement is required</small>
+            class="alert alert-danger">
+            <small *ngIf="f.line5?.errors.required">Statement is required</small>
+          </div>
+        </li> -->
+        <!-- new input addition -->
+        <div formArrayName="lines">
+
+          <li *ngFor="let line of linesControl.controls ; let i=index" [formGroupName]="i">
+            <div class="twins mt-2">
+              <p class="twin c3">That</p>
+              <textarea placeholder="reason" formControlName="line1" class="lg c9 ml-2"></textarea>
+              <span *ngIf="linesControl.controls.length > 0" (click)="removeLines(i)"
+                class="float-right text-danger"><button>&times;</button></span>
+            </div>
+            <div *ngIf="!generalForm.controls.lines.controls[i].controls.line1.valid" class="alert alert-danger">
+              <small>Statement is required</small>
+            </div>
+
+          </li>
+
+
         </div>
-        </li>
+        <button type="button" class="btn btn-outline-success" (click)="addLines()">Add Input</button>
+        <!-- <div style="clear: both;"></div> -->
+        <!--  -->
         <li>
           That I am making this solemn declaration conscientiously believing same to be true and correct in accordance
           with the Oaths Act of 1990
@@ -103,7 +124,7 @@
 
       <div class="twins mt-2">
         <div class="form-inline mr-2 c3">
-          <p>Date: <input type="date"  formControlName="date" [ngClass]="{ 'is-invalid': submitted && f.date.errors }" />
+          <p>Date: <input type="date" formControlName="date" [ngClass]="{ 'is-invalid': submitted && f.date.errors }" />
             <span *ngIf="(f.date.dirty && f.date.invalid) || (submitted && f.date.errors)" class="alert alert-danger">
               <small *ngIf="f.date.errors.required">Date is required</small>
             </span>
@@ -116,7 +137,8 @@
       </div>
       <div class="twins mt-2">
         <p class="twin c3">Sworn to at the</p>
-        <input type="text" formControlName="courtName" placeholder="high court, maitama" class="lg c9 ml-2" [ngClass]="{ 'is-invalid': submitted && f.courtName.errors }" />
+        <input type="text" formControlName="courtName" placeholder="high court, maitama" class="lg c9 ml-2"
+          [ngClass]="{ 'is-invalid': submitted && f.courtName.errors }" />
         <p class="twin c3">Registry</p>
       </div>
       <div *ngIf="(f.courtName.dirty && f.courtName.invalid) || (submitted && f.courtName.errors)"
@@ -127,18 +149,21 @@
 
       <div class="form-inline mt-2">
         <p>
-          This <input type="number" placeholder="18th" formControlName="presentDay" name="day" [ngClass]="{ 'is-invalid': submitted && f.presentDay.errors }"  />
+          This <input type="number" placeholder="18th" formControlName="presentDay" name="day"
+            [ngClass]="{ 'is-invalid': submitted && f.presentDay.errors }" />
           <span *ngIf="(f.presentDay.dirty && f.presentDay.invalid) || (submitted && f.presentDay.errors)"
-          class="alert alert-danger">
-          <small *ngIf="f.presentDay.errors.required">Day is required</small>
-        </span>
+            class="alert alert-danger">
+            <small *ngIf="f.presentDay.errors.required">Day is required</small>
+          </span>
           day
           of
-          <input type="text" placeholder="october 2019" formControlName="presentMonthYear" name="my" class=" mt-1 ml-2 c9" [ngClass]="{ 'is-invalid': submitted && f.presentMonthYear.errors }" />
-          <span *ngIf="(f.presentMonthYear.dirty && f.presentMonthYear.invalid) || (submitted && f.presentMonthYear.errors)"
-          class="alert alert-danger">
-          <small *ngIf="f.presentMonthYear.errors.required">Month & Year is required</small>
-        </span>
+          <input type="text" placeholder="october 2019" formControlName="presentMonthYear" name="my"
+            class=" mt-1 ml-2 c9" [ngClass]="{ 'is-invalid': submitted && f.presentMonthYear.errors }" />
+          <span
+            *ngIf="(f.presentMonthYear.dirty && f.presentMonthYear.invalid) || (submitted && f.presentMonthYear.errors)"
+            class="alert alert-danger">
+            <small *ngIf="f.presentMonthYear.errors.required">Month & Year is required</small>
+          </span>
         </p>
       </div>
       <p class="mt-2 mb-2">
@@ -146,23 +171,25 @@
       </p>
       <div class="form-inline">
         <p>
-          <input type="text" placeholder="nil" formControlName="fromLanguage" id="nil" /> 
+          <input type="text" placeholder="nil" formControlName="fromLanguage" id="nil" />
           <span *ngIf="(f.fromLanguage.dirty && f.fromLanguage.invalid) || (submitted && f.fromLanguage.errors)"
-          class="alert alert-danger">
-          <small *ngIf="f.fromLanguage.errors.required">Language From is required</small>
-        </span>
+            class="alert alert-danger">
+            <small *ngIf="f.fromLanguage.errors.required">Language From is required</small>
+          </span>
           Language
-          to <input type="text" placeholder="nil" class="mt-2" formControlName="toLanguage"  [ngClass]="{'is-invalid': submitted && f.toLanguage.errors}"/> 
+          to <input type="text" placeholder="nil" class="mt-2" formControlName="toLanguage"
+            [ngClass]="{'is-invalid': submitted && f.toLanguage.errors}" />
           <span *ngIf="(f.toLanguage.dirty && f.toLanguage.invalid) || (submitted && f.toLanguage.errors)"
             class="alert alert-danger">
             <small *ngIf="f.toLanguage.errors.required">Language To is required</small>
           </span>
           Language by
-          <input type="text" placeholder="nil" class="mt-2" [ngClass]="{'is-invalid': submitted && f.interpreter.errors}" formControlName="interpreter"/>
+          <input type="text" placeholder="nil" class="mt-2"
+            [ngClass]="{'is-invalid': submitted && f.interpreter.errors}" formControlName="interpreter" />
           <span *ngIf="(f.interpreter.dirty && f.interpreter.invalid) || (submitted && f.interpreter.errors)"
-          class="alert alert-danger">
-          <small *ngIf="f.interpreter.errors.required">Interpreter is required</small>
-        </span>
+            class="alert alert-danger">
+            <small *ngIf="f.interpreter.errors.required">Interpreter is required</small>
+          </span>
         </p>
       </div>
       <p class="mt-2 mb-2">
@@ -193,7 +220,8 @@
       </div>
       <div class="form-inline">
         <label for="date" class="mr-sm-2"><strong>Date:</strong></label>
-        <input type="date" class="mb-2 mr-sm-2" id="date" placeholder="08/08/2019" formControlName="date" [ngClass]="{'is-invalid': submitted && f.date.errors}" />
+        <input type="date" class="mb-2 mr-sm-2" id="date" placeholder="08/08/2019" formControlName="date"
+          [ngClass]="{'is-invalid': submitted && f.date.errors}" />
       </div>
       <div *ngIf="(f.date.dirty && f.date.invalid) || (submitted && f.date.errors)" class="alert alert-danger">
         <small *ngIf="f.date.errors.required">Date is required</small>
@@ -215,7 +243,7 @@
 <ng-template #content2 let-modal>
   <div *ngIf="response" id="printableArea">
     <div class="modal-body text-center text-uppercase">
-        <div class="bg-image"></div>
+      <div class="bg-image"></div>
       <div clas="head-text">
         <h3>High court of justice</h3>
         <h3>Federal capital territory, abuja.</h3>

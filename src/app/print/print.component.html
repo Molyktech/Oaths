@@ -33,10 +33,7 @@
   <app-marriage-affidavit [affidavit]="affidavit"></app-marriage-affidavit>
   <button type="button" class="search-btn mt-4 mb-4 float-right mr-4" (click)="print('affidavit')">Print</button>
 </div>
-<div *ngIf="affidavit && affidavit.documentName ==='STATUTORY DECLARATION OF AGE'" id="affidavit">
-  <app-general-affidavit [affidavit]="affidavit"></app-general-affidavit>
-  <button type="button" class="search-btn mt-4 mb-4 float-right mr-4" (click)="print('affidavit')">Print</button>
-</div>
+
 
 <div *ngIf="affidavit && affidavit.documentName ==='GENERAL FORM OF AFFIDAVIT'" id="affidavit">
   <app-general-affidavit [affidavit]="affidavit"></app-general-affidavit>

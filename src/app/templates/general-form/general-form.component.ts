@@ -47,19 +47,39 @@ export class GeneralFormComponent implements OnInit {
       line1: ['', Validators.required],
       line2: ['', Validators.required],
       line3: ['', Validators.required],
-      line4: ['', Validators.required],
-      line5: ['', Validators.required],
+      // line4: ['', Validators.required],
+      // line5: ['', Validators.required],
       date: ['', Validators.required],
       courtName: ['', Validators.required],
       fromLanguage: ['', Validators.required],
       toLanguage: ['', Validators.required],
       interpreter: ['', Validators.required],
       presentDay: ['', Validators.required],
-      presentMonthYear: ['', Validators.required]
+      presentMonthYear: ['', Validators.required],
+      lines: this.fb.array([this.initLine()])
+    });
+  }
+
+  initLine() {
+    return this.fb.group({
+      line1: ['', Validators.required]
     });
   }
   get f() {
     return this.generalForm.controls;
+  }
+  get linesControl() {
+    return this.generalForm.get('lines') as FormArray;
+  }
+
+  addLines() {
+    const control = this.generalForm.controls.lines as FormArray;
+    control.push(this.initLine());
+  }
+
+  removeLines(i: number) {
+    const control = this.generalForm.controls.lines as FormArray;
+    control.removeAt(i);
   }
 
   getInstitution() {
