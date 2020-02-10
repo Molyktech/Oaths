@@ -1,0 +1,22 @@
+<div class="container">
+  <h2><strong style="font-weight:bold">TRANSACTION SUMMARY REPORT </strong> <small *ngIf="startDate && endDate"> {{startDate}} to {{endDate}}</small></h2>
+  <div style="display:flex; justify-content: center" class="mb-4">
+    <input type="date" class="mr-3" [(ngModel)]="startDate">
+    <input type="date" class="mr-3" [(ngModel)]="endDate">
+    <button class="btn btn-outline-primary" (click)="filterByDate()">Show</button>
+  </div>
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">S/N</div>
+      <div class="col col-5">Type</div>
+      <div class="col col-2">Number Generated</div>
+      <div class="col col-2">Total AMount</div>
+    </li>
+    <li class="table-row" *ngFor="let transaction of transactionSummary; index as i">
+      <div class="col col-1" data-label="Job Id">{{i+1}}</div>
+      <div class="col col-5" data-label="Customer Name">{{transaction.documentName}}</div>
+      <div class="col col-2" data-label="Amount">{{transaction.quantity}}</div>
+      <div class="col col-2" data-label="Payment Status">₦{{transaction.totalAmount}}</div>
+    </li>
+  </ul>
+</div>

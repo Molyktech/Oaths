@@ -56,4 +56,8 @@ export class LoginService {
       `${this.url}/User/GetByInstitutionID/${institutionID}`
     );
   }
+
+  updateUser(obj){
+    return this.httpClient.post(`${this.url}/User/Update`, obj)
+  }
 }

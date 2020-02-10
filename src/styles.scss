@@ -176,6 +176,7 @@ table {
 #sidenav .menu-item mat-icon {
   margin-right: 20px;
   margin-left: 12px;
+  margin-top: 4px;
 }
 
 .dash-list h3 {
@@ -202,7 +203,7 @@ button.main {
   font-weight: 900;
   color: #fff;
   padding: 1.25rem 2rem;
-  background: #673AB7;
+  background: #13eba2;
   text-transform: uppercase;
 }
 
@@ -213,10 +214,25 @@ button.main:active {
 }
 
 
-.ng-valid[required], .ng-valid.required  {
-  border: 1px solid #42A948; /* green */
+.ng-valid[required],
+.ng-valid.required {
+  border: 1px solid #42A948;
+  /* green */
 }
 
-.ng-invalid:not(form)  {
-  border: 1px solid #a94442; /* red */
+.ng-invalid:not(form) {
+  border: 1px solid #a94442;
+  /* red */
+}
+
+.bg-image {
+  background: url("https://seeklogo.com/images/C/coat-of-arms-of-nigeria-logo-1BB4D7976C-seeklogo.com.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: .1;
+  height: 200px;
+  position: relative;
+  top: 270px;
+
 }

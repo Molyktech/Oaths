@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { EnvService } from './env.service';
 import { ChangeOfName } from '../models/changeOfName';
 import { AgeDeclaration } from '../models/ageDeclaration';
+import { GeneralAffidavit } from '../models/generalAffidavit';
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +21,35 @@ export class DocumentService {
   saveAgeDeclaration(obj: AgeDeclaration) {
     return this.http.post(`${this.url}/AgeDeclaration/save`, obj);
   }
-  getMarriageAgeNameGeneralById(urll,id){
-    return this.http.get(`${this.url}/${urll}/${id}`)
+
+  saveMarriageDeclaration(obj) {
+    return this.http.post(`${this.url}/Marriage/Save`, obj);
+  }
+  getMarriageAgeNameGeneralById(urll, id) {
+    return this.http.get(`${this.url}/${urll}/${id}`);
   }
 
-  getDocumentByRef(refNo){
-    return this.http.get(`${this.url}/Document/GetByDocumentRef/${refNo}`)
+  saveGeneralAffidavit(obj: GeneralAffidavit) {
+    return this.http.post(`${this.url}/GeneralAffidavit/Save`, obj);
+  }
+
+  getDocumentByRef(refNo) {
+    return this.http.get(`${this.url}/Document/GetByDocumentRef/${refNo}`);
+  }
+
+  saveDocumentType(obj) {
+    return this.http.post(`${this.url}/DocumentType/Save`, obj);
+  }
+
+  getDocumentTypesByInstitution(id) {
+    return this.http.get(`${this.url}/DocumentType/GetByInstitution/${id}`);
+  }
+
+  updateDocumentType(obj) {
+    return this.http.post(`${this.url}/DocumentType/Update`, obj);
+  }
+
+  updatePrint(obj) {
+    return this.http.post(`${this.url}/Document/UpdatePrintTime`, obj);
   }
 }

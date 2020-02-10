@@ -8,8 +8,10 @@ import {
 } from '@angular/animations';
 import { Router } from '@angular/router';
 import { User } from '../models/user';
-import { Subscription }  from 'rxjs';
+import { Subscription } from 'rxjs';
 import { LoginService } from '../services/login.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormGroup, FormControl, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-navigation',
@@ -31,8 +33,12 @@ export class NavigationComponent implements OnInit {
   contentMargin = 240;
   expanded: boolean;
   open = false;
-  user: User 
+  drop = false;
+  user: User;
   currentUserSubscription: Subscription;
+  changePasswordForm:FormGroup;
+  submitted=false;
+  currentUser;
 
   navItems = [
     {
@@ -49,19 +55,44 @@ export class NavigationComponent implements OnInit {
     }
   ];
 
-  constructor(public router: Router, private loginService: LoginService) {
-    this.currentUserSubscription = this.loginService.currentUser.subscribe(user => {
-      this.user = user;
-    });
+  reportItems = [
+    {
+      displayName: 'Reports',
+      iconName: 'report',
+      route: 'navigation/reports',
+      children: [
+        {
+          displayName: 'Speakers',
+          iconName: 'group',
+          route: 'devfestfl/speakers'
+        }
+      ]
+    }
+  ];
+
+  constructor(public router: Router, 
+    private loginService: LoginService,
+    private modalService: NgbModal
+  ) {
+    this.currentUserSubscription = this.loginService.currentUser.subscribe(
+      user => {
+        this.user = user;
+      }
+    );
+    this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
   }
   ngOnInit() {
     console.log(this.user);
+    this.changePasswordForm = new FormGroup({
+      oldPassword: new FormControl(null),
+      newPassword: new FormControl(null,Validators.required)
+    })
   }
 
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
     this.currentUserSubscription.unsubscribe();
-}
+  }
   onToolbarMenuToggle() {
     console.log('On toolbar toggled', this.isMenuOpen);
     this.isMenuOpen = !this.isMenuOpen;
@@ -71,9 +102,15 @@ export class NavigationComponent implements OnInit {
     } else {
       this.contentMargin = 240;
     }
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 300);
   }
   openDropdown() {
     this.open = !this.open;
+  }
+  dropDown() {
+    this.drop = !this.drop;
   }
 
   onItemSelected(item) {
@@ -86,11 +123,23 @@ export class NavigationComponent implements OnInit {
   }
 
   logOut() {
-    
-   
-      this.loginService.logout();
-      this.router.navigate(['/login']);
-  
+    this.loginService.logout();
+    this.router.navigate(['/login']);
+  }
 
+  openModal(content){
+    this.modalService.open(content)
+  }
+
+  changePassword(){
+    this.submitted=true
+    if(this.changePasswordForm.valid){
+      this.currentUser.Password=this.changePasswordForm.value.newPassword
+      console.log(this.changePasswordForm.value)
+      console.log(this.currentUser)
+      this.loginService.updateUser(this.currentUser).subscribe(data=>{
+        console.log(data)
+      })
+    }
   }
 }

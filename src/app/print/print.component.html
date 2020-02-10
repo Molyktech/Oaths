@@ -1,0 +1,49 @@
+<app-loader *ngIf="loading"></app-loader>
+
+<div class="content">
+  <h1 class="ribbon mb-4">PRINT AFFIDAVIT</h1>
+  <div class="">
+    <app-alert></app-alert>
+    <form [formGroup]="searchForm" (onSubmit)="getDocument()">
+      <div class="form-group mt-4">
+
+        <label for="search">Enter Affidavit Ref No.</label>
+        <input class="form-control mt-2" type="text" placeholder="Affidavit Ref Number" formControlName="search"
+          [ngClass]="{ 'is-invalid': submitted && search.errors }" />
+
+      </div>
+      <div class="alert alert-danger" *ngIf="search.touched && search.invalid || submitted && search.errors">
+        <div *ngIf="search?.errors.required">Affidavit Reference Number is required</div>
+      </div>
+
+      <button type="submit" class="search-btn float-right mb-4" (click)="getDocument()">Find Document</button>
+
+
+    </form>
+  </div>
+
+</div>
+
+<div *ngIf="affidavit && affidavit.documentName ==='STATUTORY DECLARATION OF AGE'" id="affidavit">
+  <app-age-affidavit [affidavit]="affidavit"></app-age-affidavit>
+  <button type="button" class="search-btn mt-4 mb-4 float-right mr-4" (click)="print('affidavit')">Print</button>
+</div>
+
+<div *ngIf="affidavit && affidavit.documentName ==='DECLARATION OF MARRIAGE'" id="affidavit">
+  <app-marriage-affidavit [affidavit]="affidavit"></app-marriage-affidavit>
+  <button type="button" class="search-btn mt-4 mb-4 float-right mr-4" (click)="print('affidavit')">Print</button>
+</div>
+<!-- <div *ngIf="affidavit && affidavit.documentName ==='STATUTORY DECLARATION OF AGE'" id="affidavit">
+  <app-general-affidavit [affidavit]="affidavit"></app-general-affidavit>
+  <button type="button" class="search-btn mt-4 mb-4 float-right mr-4" (click)="print('affidavit')">Print</button>
+</div> -->
+
+<div *ngIf="affidavit && affidavit.documentName ==='GENERAL FORM OF AFFIDAVIT'" id="affidavit">
+  <app-general-affidavit [affidavit]="affidavit"></app-general-affidavit>
+  <button type="button" class="search-btn mt-4 mb-4 float-right mr-4" (click)="print('affidavit')">Print</button>
+</div>
+
+<div *ngIf="affidavit && affidavit.documentName ==='AFFIDAVIT OF CHANGE OF NAME'" id="affidavit">
+  <app-name-affidavit [affidavit]="affidavit"></app-name-affidavit>
+  <button type="button" class="search-btn mt-4 mb-4 float-right mr-4" (click)="print('affidavit')">Print</button>
+</div>

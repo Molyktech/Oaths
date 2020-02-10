@@ -50,15 +50,15 @@ h3{
 }
 .oathform{
     box-shadow: 3px 3px 5px rgb(145, 142, 142), -3px -3px 5px rgb(145, 142, 142);
-    text-align: center;
+    //text-align: center;
     padding-top:15px;
     padding-bottom:30px;
     width:400px;
     margin:30px auto;
     line-height:2em;
-    color: #673AB7;
-    border: 1px solid #673AB7;
+    border: 1px solid rgb(168, 166, 172);
     border-radius: 5px;
+    font-weight: normal !important;
 }
 
 .loader {
@@ -78,6 +78,15 @@ h3{
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+  }
+
+  .image-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .normal{
+      font-weight: normal !important
   }
 
 

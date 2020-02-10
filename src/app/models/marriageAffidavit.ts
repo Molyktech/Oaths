@@ -1,0 +1,30 @@
+export class MarriageAffidavit {
+  id: number;
+  staffId: number;
+  husband: string;
+  wife: string;
+  witnessName: string;
+  witnessStreet: string;
+  witnessCountry: string;
+  witnessReligion: string;
+  relationship: string;
+  declarant: string;
+  date: string;
+  courtName: string;
+  fromLanguage: string;
+  toLanguage: string;
+  interpreter: string;
+  amountPaid: number;
+  tellerNumber: string;
+  institutionId: number;
+  documentRef: string;
+  isPaid: boolean;
+  dateGenerated: string;
+  datePaid: string;
+  documentName: string;
+  printedTime: string;
+  presentDay: number;
+  marriageDay: string;
+  marriageMonthYear: string;
+  presentMonthYear: string;
+}
