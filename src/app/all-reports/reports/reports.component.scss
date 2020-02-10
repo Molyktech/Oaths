@@ -73,10 +73,22 @@ body{
     background-color: #dddddd;
   }
   .index{
-    padding:2px !important;
+    paddin:2px !important;
     text-align:center !important;
   }
   .tableHeader{
     text-align: center; 
     font-weight:bold
+  }
+  .unpaid{
+    color:red;
+    border:1px solid red;
+    padding:1px;
+    border-radius:2px;
+  }
+  .paid{
+    color:green;
+    border: 1px solid green;
+    padding:1px;
+    border-radius:2px;
   }

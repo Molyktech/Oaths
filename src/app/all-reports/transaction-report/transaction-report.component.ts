@@ -14,19 +14,25 @@ import { AlertService } from "src/app/services/alert.service";
 export class TransactionReportComponent implements OnInit {
   currentUser: User;
   reports: any;
+
   searchText = "";
   config: any;
   fetching = false;
+transactionSummary;
+  startDate;
+  endDate;
   constructor(
     private reportService: ReportsService,
     private dialog: MatDialog,
     public toastService: ToastService
   ) {
     this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
   }
 
   ngOnInit() {
     this.getTransactionReport();
+    this.getTransactionSummary()
   }
 
   openDialog(title, msg): void {
@@ -40,6 +46,7 @@ export class TransactionReportComponent implements OnInit {
     this.fetching = true;
     this.reportService
       .getTransactionReport(this.currentUser.institutionID)
+
       .subscribe(
         res => {
           this.reports = res;
@@ -71,5 +78,22 @@ export class TransactionReportComponent implements OnInit {
 
   pageChanged(event) {
     this.config.currentPage = event;
+
+  }
+
+  getTransactionSummary(){
+    this.reportService.getTransactionSummaryReport(this.currentUser.institutionID,'0','0').subscribe(data=>{
+      this.transactionSummary=data
+    })
+  }
+
+  filterByDate(){
+    let s = this.startDate.split('-')
+    let startdate = `${s[2]}-${s[1]}-${s[0]}`
+    let e = this.endDate.split('-')
+    let enddate = `${e[2]}-${e[1]}-${e[0]}`
+    this.reportService.getTransactionSummaryReport(this.currentUser.institutionID,startdate,enddate).subscribe(data=>{
+      this.transactionSummary=data
+    })
   }
 }

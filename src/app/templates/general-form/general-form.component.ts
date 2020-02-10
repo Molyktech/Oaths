@@ -28,6 +28,8 @@ export class GeneralFormComponent implements OnInit {
   submitted = false;
   loading = false;
   response: any;
+  thats=[];
+  items:FormArray;
   constructor(
     private institutionService: InstitutionService,
     private fb: FormBuilder,
@@ -47,8 +49,11 @@ export class GeneralFormComponent implements OnInit {
       line1: ['', Validators.required],
       line2: ['', Validators.required],
       line3: ['', Validators.required],
-      // line4: ['', Validators.required],
-      // line5: ['', Validators.required],
+
+      line4: ['', Validators.required],
+      line5: ['', Validators.required],
+      line: this.fb.array([ this.createItem() ]),
+
       date: ['', Validators.required],
       courtName: ['', Validators.required],
       fromLanguage: ['', Validators.required],
@@ -98,6 +103,8 @@ export class GeneralFormComponent implements OnInit {
     const obj = this.generalForm.value;
     obj.staffId = this.currentUser.id;
     obj.institutionId = this.currentUser.institutionID;
+    //console.log(obj)
+    obj.line=[{that:obj.line1},{that:obj.line2},{that:obj.line3},{that:obj.line4},{that:obj.line5},...obj.line]
     this.documentService.saveGeneralAffidavit(obj).subscribe(
       res => {
         this.response = res;
@@ -144,5 +151,20 @@ export class GeneralFormComponent implements OnInit {
   reset() {
     this.submitted = false;
     this.generalForm.reset();
+  }
+
+  addThat(){
+    this.thats.push(6)
+  }
+
+  createItem(): FormGroup {
+    return this.fb.group({
+      that: ''
+    });
+  }
+
+  addItem(): void {
+    this.items = this.generalForm.get('line') as FormArray;
+    this.items.push(this.createItem());
   }
 }

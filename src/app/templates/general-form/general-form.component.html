@@ -112,15 +112,34 @@
 
 
         </div>
+
         <button type="button" class="btn btn-outline-success" (click)="addLines()">Add Input</button>
         <!-- <div style="clear: both;"></div> -->
         <!--  -->
+
+        </li>
+        <ng-container formArrayName="line" *ngFor="let item of generalForm.get('line').controls; let i = index;">
+          <li [formGroupName]="i">
+              <div class="twins mt-2">
+                <p class="twin c3">That</p>
+                <textarea formControlName="that" placeholder="her true and correct date of birth is 17th" 
+                  class="lg c9 ml-2" [ngClass]="{ 'is-invalid': submitted && f.line5.errors }"></textarea>
+              </div>
+              <!-- <div *ngIf="(f.line5?.touched && f.line5?.invalid) ||(submitted && f.line5?.errors)"
+                    class="alert alert-danger">
+                <small *ngIf="f.line5?.errors.required">Statement is required</small>
+              </div> -->
+          </li>
+        </ng-container>
+        <button class="btn btn-primary" style="float:right" (click)="addItem()"><mat-icon>add_circle</mat-icon></button><br>
+
         <li>
           That I am making this solemn declaration conscientiously believing same to be true and correct in accordance
           with the Oaths Act of 1990
         </li>
 
       </ol>
+
 
       <div class="twins mt-2">
         <div class="form-inline mr-2 c3">

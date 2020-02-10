@@ -1,6 +1,6 @@
 <mat-toolbar id="mainToolbar" [ngStyle]="{'background': '#006644', 'color':'#fff'}">
   <mat-icon (click)=" onToolbarMenuToggle()" id="toolbarMenu">subject</mat-icon>
-  Court App
+  e-Affidavit
   <span class="toolbar-spacer"></span>
   <mat-icon class="toolbar-icon" matBadge="1" matBadgePosition="after">notifications
   </mat-icon>
@@ -9,6 +9,31 @@
   </button>
 </mat-toolbar>
 
+<ng-template #passwordModal>
+  <div class="card">
+    <div class="card-header">
+      <b style="font-weight: bold">Change Password</b>
+    </div>
+    <form [formGroup]="changePasswordForm">
+      <div class="card-body">
+        <!-- <div class="form-group">
+          <div class="form-label">Enter old password</div>
+            <input type="text" class="form-control password-input" formControlName="oldPassword">
+        </div>
+        <div *ngIf="changePasswordForm.controls.oldPassword.errors?.required && submitted"><small class="text-danger">Enter old password</small></div> -->
+        <div class="form-group">
+          <div class="form-label">Enter new password</div>
+            <input type="text" class="form-control password-input" formControlName="newPassword">
+        </div>
+        <div *ngIf="changePasswordForm.controls.newPassword.errors?.required && submitted"><small class="text-danger">Enter old password</small></div>
+      </div>
+    </form>
+    <div class="card-footer">
+      <button class="btn btn-outline-primary" style="float:right" (click)="changePassword()">Change Password</button>
+    </div>
+  </div>
+</ng-template>
+
 <mat-sidenav-container id="sidenavContainer" fullscreen>
   <mat-sidenav mode="side" #sidenav id="sidenav" [class.menu-open]="isMenuOpen" [class.menu-close]="!isMenuOpen" opened>
     <mat-list id="menus">
@@ -16,15 +41,17 @@
         <mat-card-header [ngStyle]="{'color':'#00787A', 'fontFamily': 'Amarante, Tahoma, sans-serif'}">
           <div mat-card-avatar class="avatar"></div>
 
-          <mat-card-title>{{user.firstName}}</mat-card-title>
-          <mat-card-subtitle>{{user.role.name}}</mat-card-subtitle>
+
+          <mat-card-title (click)="openModal(passwordModal)" style="cursor:pointer">{{user.firstName}}</mat-card-title>
+          <mat-card-subtitle [ngStyle]="{'color':'#05ac72'}">{{user.role.name}}</mat-card-subtitle>
+
         </mat-card-header>
       </mat-card>
       <mat-list-item>
         <button class="menu-item" mat-flat-button routerLink="/navigation/dashboard" routerLinkActive="active"
           [ngStyle]="{'color':'#00787A'}">
           <mat-icon>dashboard</mat-icon>
-          Dashboard
+          Revenue Dashboard
         </button>
       </mat-list-item>
 
@@ -43,14 +70,14 @@
         <button routerLink="createuser" routerLinkActive="active" class="menu-item" mat-flat-button
           [ngStyle]="{'color':'#00787A'}">
           <mat-icon class="routeIcon">group</mat-icon>
-          Create User
+          User Management
         </button>
       </mat-list-item>
       <mat-list-item *ngIf="open">
         <button routerLink="createdocument" routerLinkActive="active" class="menu-item" mat-flat-button
           [ngStyle]="{'color':'#00787A'}">
           <mat-icon class="routeIcon">group</mat-icon>
-          Create Document
+          Revenue Setup
         </button>
       </mat-list-item>
       <mat-list-item *ngIf="open">
@@ -116,8 +143,8 @@
       </mat-list-item>
       <mat-list-item>
         <button class="menu-item" mat-flat-button routerLink="/navigation/payments" [ngStyle]="{'color':'#00787A'}">
-          <mat-icon>local_atm</mat-icon>
-          Payments
+          <mat-icon>check_circle_outline</mat-icon>
+          Verify Affidavit
         </button>
       </mat-list-item>
       <mat-list-item routerLink="print">

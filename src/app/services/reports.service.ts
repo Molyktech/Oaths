@@ -20,4 +20,8 @@ export class ReportsService {
       `${this.url}/TransactionReport/GetByInstitutionID/${institutionId}`
     );
   }
+
+  getTransactionSummaryReport(institutionId: number, startDate:string, endDate: string){
+    return this.httpClient.get(`${this.url}/Report/GetSummaryTransactionReport/${institutionId}/${startDate}/${endDate}`)
+  }
 }

@@ -9,6 +9,7 @@ import { ToastModule } from './../toast/toast.module';
 import { AlertModule } from './../alert/alert.module';
 import { SharedModule } from '../shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MaterialModule } from '../material-module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ToastModule,
     AlertModule,
     SharedModule,
-    NgbModule
+    NgbModule,
+    MaterialModule
   ]
 })
 export class TemplatesModule {}

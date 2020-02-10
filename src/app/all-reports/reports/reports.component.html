@@ -1,4 +1,5 @@
-<div class="container">
+<app-loader *ngIf="loading"></app-loader>
+<div class="container" *ngIf="showReport">
     <!-- <div style="display:flex; justify-content: space-around">
       <div style="margin-top:60px;">
           <h5 style="color:#FD9FB3">Total Paid: {{paidLength}}</h5><br>
@@ -23,29 +24,49 @@
     </div>
 
 
-  <div class="container mt-2" *ngIf="!loading">
+  <div class="container mt-2 table table-responsive-sm" *ngIf="!loading">
     <table>
         <tr>
           <th class="tableHeader">Ref No.</th>
           <th class="tableHeader">Affidavit Type</th>
+          <th class="tableHeader">Amount</th>
           <th class="tableHeader">Status</th>
-          <th class="tableHeader">Staff</th>
           <th class="tableHeader">Date Paid</th>
           <th class="tableHeader">Date Printed</th>
+          <th></th>
         </tr>
         <tr *ngFor="let report of reports | paginate: { itemsPerPage: 10, currentPage: p }">
           <th class="index">{{ report.arn }}</th>
-          <td style="text-align: center">
-            {{ report.affidavitType }}
-          </td>
-          <td class="index" *ngIf="report.isPaid">Paid</td>
-          <td class="index" *ngIf="!report.isPaid">Unpaid</td>
-          <td class="index">{{ report.staff }}</td>
+          <td style="text-align: center">{{ report.affidavitType }}</td>
+          <td style="text-align: center">₦{{ report.amount }}</td>
+          <td class="index" *ngIf="report.isPaid"><span class="paid">Paid</span></td>
+          <td class="index" *ngIf="!report.isPaid"><span class="unpaid">Unpaid</span></td>
           <td class="index">{{ getDate(report.dateGenerated) }}</td>
           <td class="index">{{ getDate(report.dateGenerated) }}</td>
+          <td><button class="btn btn-outline-primary" (click)="viewAffidavit(report.arn)">View</button></td>
         </tr>
     </table>
   </div>
 </div><br>
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+<pagination-controls (pageChange)="p = $event" *ngIf="showReport"></pagination-controls>
+
+<button class="btn btn-outline-secondary ml-4" (click)="backToReports()" *ngIf="!showReport">Back To Reports</button>
+
+
+  <div *ngIf="affidavit && affidavit.documentName ==='STATUTORY DECLARATION OF AGE'" id="affidavit">
+    <app-age-view [affidavit]="affidavit"></app-age-view>
+  </div>
+  
+  <div *ngIf="affidavit && affidavit.documentName ==='DECLARATION OF MARRIAGE'" id="affidavit">
+    <app-marriage-view [affidavit]="affidavit"></app-marriage-view>
+  </div>
+  
+  <div *ngIf="affidavit && affidavit.documentName ==='GENERAL FORM OF AFFIDAVIT'" id="affidavit">
+    <app-general-view [affidavit]="affidavit"></app-general-view>
+  </div>
+  
+  <div *ngIf="affidavit && affidavit.documentName ==='AFFIDAVIT OF CHANGE OF NAME'" id="affidavit">
+    <app-name-view [affidavit]="affidavit"></app-name-view>
+  </div>
+  
 

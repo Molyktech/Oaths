@@ -3,6 +3,8 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Role } from '../models/role';
 import { Privilege } from '../models/privilege';
 import { RolesService } from '../services/roles.service';
+import { LoginService } from '../services/login.service';
+import { User } from '../models/user';
 
 
 @Component({
@@ -45,12 +47,17 @@ export class RolesComponent implements OnInit {
   chosenRole;
   loading=true;
   displayedColumns: string[] = ['id', 'name'];
-  loading2=false
+  loading2=false;
+  currentUser:User;
+  users:User[];
 
   constructor(
     private modalService: NgbModal,
-    private roleService: RolesService
-              ) {}
+    private roleService: RolesService,
+    private loginService: LoginService
+              ) {
+                this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
+              }
 
   ngOnInit() {
     this.setPrivilegesToFalse()
@@ -109,7 +116,6 @@ export class RolesComponent implements OnInit {
   getRolesByInstitution() {
     this.roleService.getRoleByInstitutionId(1).subscribe(data => {
       this.loading=false
-      console.log("roles",data)
       this.roles = <Role[]> data;
     },
       err => {
@@ -132,7 +138,6 @@ export class RolesComponent implements OnInit {
       console.log(err)
     });
   }
-
   
 
 }

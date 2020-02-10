@@ -54,7 +54,6 @@ export class PrintComponent implements OnInit {
     this.documentService.getDocumentByRef(num).subscribe(
       res => {
         this.affidavit = res;
-        console.log(res);
         this.openDialog('Court Affidavit', res['message']);
         this.loading = false;
       },
