@@ -6,7 +6,6 @@ import { ChartsModule } from 'ng2-charts';
 import { AlertModule } from '../alert/alert.module';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { ToastModule } from '../toast/toast.module';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { AgeViewComponent } from './reports/age-view/age-view.component';
